@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "products": "Productos",
+    "services": "Servicios",
+    "usecases": "Casos de uso",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "faq": "FAQ"
+  },
+  "home": {
+    "hero": {
+      "title": "AUTOMATIZA LO QUE TE HACE PERDER TIEMPO",
+      "subtitle": "Convierte procesos manuales, mensajes y tareas repetitivas en sistemas automáticos que operan por ti.",
+      "support": "Diseñado para empresas que necesitan control, velocidad y escala.",
+      "cta1": "Ver productos",
+      "cta2": "Ver servicios",
+      "cta3": "Hablar por WhatsApp"
+    },
+    "problem": {
+      "main": "Muchos negocios crecen… pero su operación sigue siendo manual.",
+      "pain1": "Información en WhatsApp que se pierde",
+      "pain2": "Procesos que dependen de personas",
+      "pain3": "Reportes que llegan tarde o mal",
+      "pain4": "Decisiones sin datos claros",
+      "closing": "Cuando tu operación no escala, tu negocio tampoco."
+    },
+    "solution": {
+      "title": "KARDRA CONVIERTE PROCESOS EN SISTEMAS",
+      "text": "Diseñamos automatizaciones que capturan, organizan y procesan información en tiempo real, sin depender de tareas manuales.",
+      "support": "Menos error humano. Más control. Más velocidad operativa."
+    },
+    "split": {
+      "left_title": "SISTEMAS LISTOS PARA USAR",
+      "left_text": "Soluciones ya diseñadas para automatizar procesos comunes de forma rápida.",
+      "left_list": ["Registro automático de gastos", "Registro automático de ingresos y egresos", "Informes automáticos de gestión (KPIs)", "Plantillas de procesos automáticos de implementación"],
+      "left_cta": "Ver productos",
+      "right_title": "SOLUCIONES A MEDIDA",
+      "right_text": "Diseñamos e implementamos automatizaciones adaptadas a tu operación.",
+      "right_list": ["Consultoría en la gestión de procesos", "Automatización de actividades", "Automatización de procesos", "Personalización de flujos de actividades"],
+      "right_cta": "Ver servicios"
+    },
+    "featuredProducts": {
+      "title": "AUTOMATIZACIONES QUE HACEN EN SEGUNDOS LO QUE HOY TE TOMA HORAS",
+      "items": [
+        { "name": "Registro automático de gastos", "text": "Convierte registros manuales en datos organizados automáticamente." },
+        { "name": "Registro automático de ingresos y egresos", "text": "Centraliza y controla tu información financiera en tiempo real." },
+        { "name": "Informes automáticos de gestión (KPIs)", "text": "Obtén reportes claros y actualizados sin construirlos manualmente." },
+        { "name": "Plantillas de procesos automáticos de implementación", "text": "Procesos listos para implementar sin empezar desde cero." }
+      ],
+      "cta": "Ver todos los productos"
+    },
+    "featuredServices": {
+      "title": "AUTOMATIZACIÓN DISEÑADA PARA TU OPERACIÓN",
+      "items": [
+        { "name": "Consultoría en la gestión de procesos", "text": "Analizamos cómo funciona tu negocio y detectamos dónde estás perdiendo tiempo y control." },
+        { "name": "Automatización de actividades", "text": "Automatizamos tareas operativas repetitivas que consumen tiempo." },
+        { "name": "Automatización de procesos", "text": "Transformamos flujos completos en sistemas eficientes y escalables." },
+        { "name": "Personalización de flujos de actividades", "text": "Creamos soluciones adaptadas a tu forma de trabajar." }
+      ],
+      "cta": "Solicitar asesoría"
+    },
+    "howItWorks": {
+      "title": "CÓMO TRABAJAMOS",
+      "steps": [
+        { "num": "01", "title": "Detectamos el proceso crítico", "text": "Identificamos dónde se pierde tiempo o información." },
+        { "num": "02", "title": "Diseñamos el sistema", "text": "Definimos cómo debe funcionar la automatización." },
+        { "num": "03", "title": "Implementamos", "text": "Conectamos herramientas, flujos y datos." },
+        { "num": "04", "title": "Escalas", "text": "Operas con más control, velocidad y menos errores." }
+      ]
+    },
+    "usecases": {
+      "title": "DONDE KARDRA GENERA IMPACTO",
+      "items": [
+        "Empresas que gestionan operaciones por WhatsApp",
+        "Equipos con procesos manuales repetitivos",
+        "Negocios sin control claro de sus datos",
+        "Operaciones que necesitan reportes en tiempo real"
+      ]
+    },
+    "cta": {
+      "title": "TU OPERACIÓN NO NECESITA MÁS TRABAJO MANUAL. NECESITA SISTEMA.",
+      "text": "Cuéntanos qué proceso quieres automatizar y te mostramos cómo hacerlo.",
+      "btn1": "Hablar por WhatsApp",
+      "btn2": "Contactar por correo"
+    }
+  },
+  "products": {
+    "hero": {
+      "title": "AUTOMATIZACIONES QUE HACEN EN SEGUNDOS LO QUE HOY TE TOMA HORAS",
+      "subtitle": "Implementa sistemas listos para usar y elimina tareas manuales desde el primer día.",
+      "support": "Sin desarrollos largos. Sin procesos complejos.",
+      "cta1": "Hablar por WhatsApp",
+      "cta2": "Contactar por correo"
+    },
+    "concept": "La mayoría de las empresas ya tiene la información.\nEl problema es el tiempo que se pierde gestionándola.\nKardra automatiza ese trabajo.",
+    "items": [
+      {
+        "title": "REGISTRO AUTOMÁTICO DE GASTOS",
+        "text": "Convierte registros manuales en datos organizados automáticamente.",
+        "benefits": ["Elimina registro manual", "Reduce errores", "Información disponible al instante"],
+        "impact": "Lo que antes registrabas al final del día, ahora queda listo en el momento."
+      },
+      {
+        "title": "REGISTRO AUTOMÁTICO DE INGRESOS Y EGRESOS",
+        "text": "Centraliza ingresos y egresos sin depender de registros manuales.",
+        "benefits": ["Información en tiempo real", "Organización automática", "Historial claro"],
+        "impact": "Tu información financiera actualizada sin esfuerzo."
+      },
+      {
+        "title": "INFORMES AUTOMÁTICOS DE GESTIÓN (KPIs)",
+        "text": "Obtén informes automáticos sin tener que armarlos manualmente.",
+        "benefits": ["KPIs actualizados", "Datos listos para decisiones", "Eliminación de reportes manuales"],
+        "impact": "Lo que antes tomaba horas, ahora aparece automáticamente."
+      },
+      {
+        "title": "PLANTILLAS DE PROCESOS AUTOMÁTICOS DE IMPLEMENTACIÓN",
+        "text": "Plantillas diseñadas para automatizar flujos comunes de forma rápida.",
+        "benefits": ["Implementación rápida", "Base para escalar", "Adaptables a tu operación"],
+        "impact": "No empiezas desde cero. Empiezas con ventaja."
+      }
+    ],
+    "cta": {
+      "title": "EMPIEZA A RECUPERAR EL TIEMPO QUE TU OPERACIÓN ESTÁ PERDIENDO",
+      "btn1": "Hablar por WhatsApp",
+      "btn2": "Contactar por correo"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "AUTOMATIZAMOS TU OPERACIÓN SEGÚN CÓMO FUNCIONA TU NEGOCIO",
+      "subtitle": "Diseñamos sistemas a medida para eliminar procesos manuales y mejorar la eficiencia.",
+      "support": "Cada empresa es distinta. Por eso las automatizaciones también.",
+      "cta1": "Solicitar asesoría",
+      "cta2": "Hablar por WhatsApp",
+      "cta3": "Contactar por correo"
+    },
+    "concept": "No todos los procesos se resuelven con herramientas estándar.\nAlgunos necesitan ser diseñados correctamente desde cero.",
+    "items": [
+      {
+        "title": "CONSULTORÍA EN LA GESTIÓN DE PROCESOS",
+        "text": "Analizamos tu operación y detectamos ineficiencias.",
+        "benefits": ["Identificación de cuellos de botella", "Diagnóstico claro", "Base para automatizar correctamente"],
+        "label": "CUSTOM"
+      },
+      {
+        "title": "AUTOMATIZACIÓN DE ACTIVIDADES",
+        "text": "Automatizamos actividades operativas que consumen tiempo.",
+        "benefits": ["Menos trabajo manual", "Más velocidad", "Menos errores"],
+        "impact": "Tareas de horas convertidas en segundos.",
+        "label": "CUSTOM"
+      },
+      {
+        "title": "AUTOMATIZACIÓN DE PROCESOS",
+        "text": "Diseñamos automatizaciones que conectan todo tu proceso.",
+        "benefits": ["Procesos integrados", "Flujo continuo", "Escalabilidad"],
+        "label": "CUSTOM"
+      },
+      {
+        "title": "PERSONALIZACIÓN DE FLUJOS DE ACTIVIDADES",
+        "text": "Creamos soluciones específicas según cómo funciona tu negocio.",
+        "benefits": ["Adaptación total", "Integración de herramientas", "Flexibilidad"],
+        "label": "CUSTOM"
+      }
+    ],
+    "timeBlock": {
+      "title": "CUÁNTO TIEMPO PUEDES RECUPERAR",
+      "text": "Procesos que hoy toman horas pueden ejecutarse automáticamente en segundos.",
+      "examples": ["Registro manual → automático", "Reportes → generados en tiempo real", "Seguimiento → automatizado"],
+      "closing": "El tiempo que recuperas se convierte en capacidad para crecer."
+    },
+    "cta": {
+      "title": "CUÉNTANOS TU PROCESO Y TE MOSTRAMOS CÓMO AUTOMATIZARLO",
+      "btn1": "Solicitar asesoría",
+      "btn2": "Hablar por WhatsApp",
+      "btn3": "Contactar por correo"
+    }
+  },
+  "usecases": {
+    "title": "CASOS DE USO",
+    "subtitle": "DONDE KARDRA GENERA IMPACTO",
+    "items": [
+      {
+        "title": "Operaciones por WhatsApp",
+        "text": "Empresas que gestionan operaciones por WhatsApp pierden información crítica a diario. Automatizamos la captura y organización de esos datos."
+      },
+      {
+        "title": "Procesos manuales repetitivos",
+        "text": "Equipos con tareas operativas repetitivas que consumen tiempo y generan errores. Los convertimos en flujos automáticos."
+      },
+      {
+        "title": "Sin control de datos",
+        "text": "Negocios sin visibilidad clara de su información. Implementamos sistemas que organizan y presentan los datos cuando los necesitas."
+      },
+      {
+        "title": "Reportes en tiempo real",
+        "text": "Operaciones que necesitan datos actualizados para tomar decisiones. Generamos informes automáticos sin esfuerzo manual."
+      }
+    ],
+    "cta": {
+      "title": "¿TU OPERACIÓN SE PARECE A ALGUNO DE ESTOS CASOS?",
+      "text": "Cuéntanos tu proceso y encontramos la mejor forma de automatizarlo.",
+      "btn1": "Hablar por WhatsApp",
+      "btn2": "Contactar por correo"
+    }
+  },
+  "about": {
+    "title": "KARDRA",
+    "text1": "Kardra desarrolla soluciones de automatización para convertir procesos manuales en sistemas más rápidos, claros y escalables.",
+    "text2": "Trabajamos con productos listos para implementar y con servicios personalizados, según la necesidad de cada operación.",
+    "cta": "Contactar"
+  },
+  "contact": {
+    "title": "CONTACTA A KARDRA",
+    "text": "Cuéntanos qué proceso quieres automatizar y conversemos la mejor forma de resolverlo.",
+    "whatsapp": "Hablar por WhatsApp",
+    "email": "Enviar correo",
+    "form": {
+      "name": "Nombre",
+      "company": "Empresa",
+      "message": "¿Qué proceso quieres automatizar?",
+      "send": "Enviar mensaje"
+    }
+  },
+  "faq": {
+    "title": "PREGUNTAS FRECUENTES",
+    "items": [
+      {
+        "q": "¿Kardra ofrece productos o servicios?",
+        "a": "Los dos. Kardra ofrece productos listos para implementar (automatizaciones ya diseñadas) y servicios personalizados (automatizaciones diseñadas según tu operación). Puedes optar por uno o combinar ambos."
+      },
+      {
+        "q": "¿Las automatizaciones son personalizadas?",
+        "a": "Depende de lo que elijas. Los productos son soluciones prediseñadas para procesos comunes. Los servicios son completamente personalizados según cómo funciona tu negocio."
+      },
+      {
+        "q": "¿Se puede implementar una solución sin cambiar toda la operación?",
+        "a": "Sí. Trabajamos de forma modular. Puedes empezar automatizando un proceso específico sin necesidad de transformar toda tu operación desde el inicio."
+      },
+      {
+        "q": "¿Cómo sé si necesito un producto o un servicio?",
+        "a": "Si tu proceso es común (gestión de gastos, ingresos, reportes), un producto puede funcionar. Si tu proceso tiene particularidades propias de tu negocio, un servicio personalizado es más adecuado. Podemos orientarte antes de que decidas."
+      },
+      {
+        "q": "¿Puedo contactar antes de decidir?",
+        "a": "Por supuesto. Es lo que recomendamos. Cuéntanos qué proceso quieres automatizar y te explicamos qué opción tiene más sentido para tu caso."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Convierte procesos manuales en sistemas automáticos.",
+    "nav_title": "Navegación",
+    "contact_title": "Contacto",
+    "rights": "Todos los derechos reservados."
+  }
+}
