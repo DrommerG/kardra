@@ -10,8 +10,11 @@ export default function Problem() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="section-padding bg-[#0A0A0A] border-t border-[#111]">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="section-padding bg-[#0A0A0A] border-t border-[#111] relative overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06]"
+        style={{ backgroundImage: 'url(/kardra/assets/ai/problem_section.png)' }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 to-[#0A0A0A]" />
+      <div className="relative max-w-7xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

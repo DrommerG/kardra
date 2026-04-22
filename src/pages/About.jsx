@@ -13,9 +13,14 @@ export default function About() {
   return (
     <div className="bg-[#0A0A0A]">
       <section ref={ref} className="section-padding min-h-screen flex items-center border-b border-[#111] relative overflow-hidden">
+        {/* Background image */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none">
+          <img src="/kardra/assets/ai/about_section.png" alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent" />
+        </div>
         {/* Large K background */}
         <div className="absolute right-0 top-0 bottom-0 flex items-center pointer-events-none select-none overflow-hidden">
-          <span className="font-display text-[30vw] text-[#0d0d0d] leading-none">K</span>
+          <span className="font-display text-[30vw] text-[#0d0d0d]/60 leading-none">K</span>
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

@@ -12,17 +12,18 @@ export default function Solution() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left: decorative number */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8 }}
-          className="hidden lg:flex items-center justify-center"
+          transition={{ duration: 0.9 }}
+          className="hidden lg:block relative overflow-hidden aspect-[4/3]"
         >
-          <div className="relative">
-            <span className="font-display text-[18rem] leading-none text-[#111] select-none">K</span>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-32 h-32 border border-[#6E1F28]/30 rotate-45" />
-            </div>
-          </div>
+          <img
+            src="/kardra/assets/ai/solution_section.png"
+            alt=""
+            className="w-full h-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
         </motion.div>
 
         {/* Right: content */}

@@ -37,6 +37,11 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
+      {/* Background image */}
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.07]"
+        style={{ backgroundImage: 'url(/kardra/assets/ai/hero_bg.png)' }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40" />
+
       {/* Background grid */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{ backgroundImage: 'linear-gradient(#F5F3EF 1px, transparent 1px), linear-gradient(90deg, #F5F3EF 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
