@@ -80,3 +80,24 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10rem 5rem;
   }
 }
+
+.text-reveal {
+  display: inline-block;
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(0.25em);
+  transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path, transform;
+}
+
+.text-reveal.is-visible {
+  clip-path: inset(0 0 0 0);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-reveal {
+    clip-path: none;
+    transform: none;
+    transition: none;
+  }
+}

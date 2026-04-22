@@ -1,9 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-
-const WA = `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
-const EMAIL = `mailto:${import.meta.env.VITE_EMAIL}`
+import { WA_URL, EMAIL_URL, EMAIL_ADDRESS } from '../config/constants'
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -15,7 +13,7 @@ export default function Contact() {
     e.preventDefault()
     const body = encodeURIComponent(`Nombre: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)
     const subject = encodeURIComponent('Consulta desde KARDRA')
-    window.location.href = `mailto:${import.meta.env.VITE_EMAIL}?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -57,7 +55,7 @@ export default function Contact() {
               className="flex flex-col gap-4"
             >
               <a
-                href={WA}
+                href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 border border-[#1a1a1a] hover:border-[#6E1F28]/50 group transition-colors duration-300"
@@ -74,7 +72,7 @@ export default function Contact() {
               </a>
 
               <a
-                href={EMAIL}
+                href={EMAIL_URL}
                 className="flex items-center gap-4 p-5 border border-[#1a1a1a] hover:border-[#6E1F28]/50 group transition-colors duration-300"
               >
                 <div className="w-10 h-10 border border-[#6E1F28]/40 flex items-center justify-center flex-shrink-0 group-hover:bg-[#6E1F28]/10 transition-colors">

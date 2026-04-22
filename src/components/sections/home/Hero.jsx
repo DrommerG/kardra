@@ -10,11 +10,11 @@ const base = '/kardra'
 const WA = `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
 
 const wordVariant = {
-  hidden: { x: -60, opacity: 0 },
+  hidden: { y: '100%', opacity: 0 },
   visible: (i) => ({
-    x: 0,
+    y: 0,
     opacity: 1,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
   }),
 }
 
@@ -48,29 +48,42 @@ export default function Hero() {
 
         {/* Left: Copy */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28] border border-[#6E1F28]/40 px-3 py-1 mb-8"
-          >
-            KARDRA — AUTOMATIZACIÓN
-          </motion.div>
+          <div className="mb-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28] border border-[#6E1F28]/40 px-3 py-1"
+            >
+              KARDRA — AUTOMATIZACIÓN
+            </motion.div>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              style={{ originX: 0 }}
+              className="mt-3 h-px w-40 bg-gradient-to-r from-[#6E1F28] via-[#6E1F28]/60 to-transparent"
+            />
+          </div>
 
-          <h1 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-[0.9] mb-8 overflow-hidden">
+          <h1 className="font-display text-[clamp(2.25rem,7vw,6.5rem)] leading-[0.9] mb-8">
             {titleWords.map((word, i) => (
-              <motion.span
+              <span
                 key={i}
-                custom={i}
-                variants={wordVariant}
-                initial="hidden"
-                animate="visible"
-                className="inline-block mr-4 last:mr-0"
+                className="inline-block overflow-hidden align-bottom mr-4 last:mr-0"
               >
-                {word === 'TIEMPO' ? (
-                  <span className="text-[#6E1F28]">{word}</span>
-                ) : word}
-              </motion.span>
+                <motion.span
+                  custom={i}
+                  variants={wordVariant}
+                  initial="hidden"
+                  animate="visible"
+                  className="inline-block"
+                >
+                  {word === 'TIEMPO' ? (
+                    <span className="text-[#6E1F28]">{word}</span>
+                  ) : word}
+                </motion.span>
+              </span>
             ))}
           </h1>
 
@@ -96,15 +109,15 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.5 }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-col sm:flex-row sm:flex-wrap gap-3"
           >
-            <Link to={`${base}/products`}>
-              <Button variant="primary">{t('home.hero.cta1')}</Button>
+            <Link to={`${base}/products`} className="w-full sm:w-auto">
+              <Button variant="primary" className="w-full sm:w-auto">{t('home.hero.cta1')}</Button>
             </Link>
-            <Link to={`${base}/services`}>
-              <Button variant="outline">{t('home.hero.cta2')}</Button>
+            <Link to={`${base}/services`} className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto">{t('home.hero.cta2')}</Button>
             </Link>
-            <Button variant="ghost" href={WA} target="_blank">
+            <Button variant="ghost" href={WA} target="_blank" className="w-full sm:w-auto">
               {t('home.hero.cta3')}
             </Button>
           </motion.div>
@@ -115,7 +128,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1.2 }}
-          className="relative h-[400px] lg:h-[560px] w-full"
+          className="relative h-[280px] md:h-[400px] lg:h-[560px] w-full"
         >
           <Suspense fallback={<div className="w-full h-full" />}>
             <KubeScene mouse={mouse} />

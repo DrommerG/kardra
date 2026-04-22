@@ -37,7 +37,7 @@ export default function FeaturedServices() {
               initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.12, duration: 0.55 }}
-              className="p-10 border-r border-b border-[#1a1a1a] lg:[&:nth-child(2n)]:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 group hover:bg-[#0d0d0d] transition-colors duration-300 flex gap-6 items-start"
+              className="p-6 md:p-10 border-b border-[#1a1a1a] lg:border-r lg:[&:nth-child(2n)]:border-r-0 lg:[&:nth-last-child(-n+2)]:border-b-0 group hover:bg-[#0d0d0d] transition-colors duration-300 flex gap-4 sm:gap-6 items-start"
             >
               <div className="flex-shrink-0 w-8 h-8 border border-[#6E1F28]/40 flex items-center justify-center mt-1">
                 <span className="font-display text-sm text-[#6E1F28]">0{i + 1}</span>

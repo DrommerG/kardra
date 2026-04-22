@@ -3,8 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import LanguageToggle from '../ui/LanguageToggle'
-
-const base = '/kardra'
+import { BASE as base } from '../../config/constants'
 
 export default function Header() {
   const { t } = useTranslation()
@@ -38,32 +37,56 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-[#1a1a1a]' : 'bg-transparent'
+        scrolled
+          ? 'bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-[#1a1a1a] shadow-[0_4px_20px_rgba(0,0,0,0.4)]'
+          : 'bg-transparent'
       }`}
     >
+      {/* Thin red top accent line when scrolled */}
+      <motion.div
+        initial={false}
+        animate={{ scaleX: scrolled ? 1 : 0, opacity: scrolled ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        style={{ transformOrigin: 'left' }}
+        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6E1F28] to-transparent"
+      />
+
       <div className="flex items-center justify-between px-6 md:px-10 h-16">
         {/* Logo */}
-        <Link to={`${base}/`} className="flex items-center">
+        <Link
+          to={`${base}/`}
+          className="flex items-center group"
+        >
           <img
             src={`${base}/assets/logo.png`}
             alt="KARDRA"
-            className="h-7 brightness-0 invert"
+            className="h-7 brightness-0 invert transition-all duration-300 ease-out group-hover:opacity-80 group-hover:scale-[1.02]"
           />
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map(({ key, to }) => (
-            <Link
-              key={key}
-              to={to}
-              className={`text-[11px] font-['Barlow'] font-600 tracking-[0.15em] uppercase transition-colors duration-150 ${
-                isActive(to) ? 'text-[#F5F3EF]' : 'text-[#555656] hover:text-[#D1CBC2]'
-              }`}
-            >
-              {t(`nav.${key}`)}
-            </Link>
-          ))}
+          {links.map(({ key, to }) => {
+            const active = isActive(to)
+            return (
+              <Link
+                key={key}
+                to={to}
+                className={`relative group text-[11px] font-['Barlow'] font-600 tracking-[0.15em] uppercase transition-colors duration-200 py-1 ${
+                  active ? 'text-[#F5F3EF]' : 'text-[#555656] hover:text-[#D1CBC2]'
+                }`}
+              >
+                {t(`nav.${key}`)}
+                <span
+                  className={`absolute left-0 -bottom-0.5 h-px transition-all duration-300 ease-out origin-left ${
+                    active
+                      ? 'w-full bg-[#6E1F28]'
+                      : 'w-0 bg-[#D1CBC2] group-hover:w-full'
+                  }`}
+                />
+              </Link>
+            )
+          })}
         </nav>
 
         {/* Right: language + hamburger */}

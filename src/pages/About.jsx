@@ -3,8 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Button from '../components/ui/Button'
-
-const base = '/kardra'
+import { BASE } from '../config/constants'
 
 export default function About() {
   const { t } = useTranslation()
@@ -61,7 +60,7 @@ export default function About() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.65 }}
             >
-              <Link to={`${base}/contact`}>
+              <Link to={`${BASE}/contact`}>
                 <Button variant="primary">{t('about.cta')}</Button>
               </Link>
             </motion.div>

@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageToggle from '../ui/LanguageToggle'
-
-const base = '/kardra'
-const WA = `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
-const EMAIL = `mailto:${import.meta.env.VITE_EMAIL}`
+import { BASE as base, WA_URL as WA, EMAIL_URL as EMAIL } from '../../config/constants'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -43,9 +40,14 @@ export default function Footer() {
               <Link
                 key={key}
                 to={to}
-                className="text-[#555656] text-sm hover:text-[#D1CBC2] transition-colors duration-150"
+                className="group relative text-[#555656] text-sm hover:text-[#D1CBC2] transition-colors duration-200 flex items-center"
               >
-                {t(`nav.${key}`)}
+                <span className="inline-block w-0 overflow-hidden opacity-0 -translate-x-1 transition-all duration-300 ease-out group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 text-[#6E1F28]">
+                  →
+                </span>
+                <span className="transition-transform duration-300 ease-out">
+                  {t(`nav.${key}`)}
+                </span>
               </Link>
             ))}
           </nav>
@@ -57,25 +59,42 @@ export default function Footer() {
             {t('footer.contact_title')}
           </p>
           <div className="flex flex-col gap-3">
-            <a href={WA} target="_blank" rel="noopener noreferrer"
-              className="text-[#555656] text-sm hover:text-[#D1CBC2] transition-colors duration-150 flex items-center gap-2">
-              <span className="w-1 h-1 bg-[#6E1F28] rounded-full" />
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group text-[#555656] text-sm hover:text-[#D1CBC2] transition-colors duration-200 flex items-center gap-2"
+            >
+              <span className="w-1 h-1 bg-[#6E1F28] rounded-full transition-all duration-300 group-hover:w-2" />
+              <span className="inline-block w-0 overflow-hidden opacity-0 transition-all duration-300 ease-out group-hover:w-4 group-hover:opacity-100 text-[#6E1F28]">
+                →
+              </span>
               WhatsApp: +593 98 418 7556
             </a>
-            <a href={EMAIL}
-              className="text-[#555656] text-sm hover:text-[#D1CBC2] transition-colors duration-150 flex items-center gap-2">
-              <span className="w-1 h-1 bg-[#6E1F28] rounded-full" />
+            <a
+              href={EMAIL}
+              className="group text-[#555656] text-sm hover:text-[#D1CBC2] transition-colors duration-200 flex items-center gap-2"
+            >
+              <span className="w-1 h-1 bg-[#6E1F28] rounded-full transition-all duration-300 group-hover:w-2" />
+              <span className="inline-block w-0 overflow-hidden opacity-0 transition-all duration-300 ease-out group-hover:w-4 group-hover:opacity-100 text-[#6E1F28]">
+                →
+              </span>
               daesgaar@gmail.com
             </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-[#111] px-6 md:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-        <span className="text-[#333434] text-xs font-['Barlow'] tracking-widest uppercase">
+      {/* Decorative gradient divider */}
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#6E1F28]/40 to-transparent" />
+      </div>
+
+      <div className="px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <span className="text-[#333434] text-[10px] font-['Barlow'] tracking-[0.25em] uppercase">
           © {year} KARDRA — {t('footer.rights')}
         </span>
-        <span className="text-[#222] text-xs">N8N · MAKE · AUTOMATION</span>
+        <span className="text-[#222] text-[10px] tracking-[0.25em] uppercase">N8N · MAKE · AUTOMATION</span>
       </div>
     </footer>
   )

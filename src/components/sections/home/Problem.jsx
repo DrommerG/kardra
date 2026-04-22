@@ -25,12 +25,18 @@ export default function Problem() {
           {pains.map((key, i) => (
             <motion.div
               key={key}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
-              className="p-8 border-r border-[#1a1a1a] last:border-r-0 group hover:bg-[#0f0f0f] transition-colors duration-300"
+              transition={{ delay: 0.2 + i * 0.18, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="p-6 sm:p-8 border-b border-[#1a1a1a] sm:border-r sm:last:border-r-0 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+2)]:border-b lg:last:border-b-0 last:border-b-0 group hover:bg-[#0f0f0f] transition-colors duration-300"
             >
-              <div className="w-1 h-8 bg-[#6E1F28] mb-6 group-hover:h-12 transition-all duration-300" />
+              <motion.div
+                initial={{ scaleY: 0 }}
+                animate={inView ? { scaleY: 1 } : {}}
+                transition={{ delay: 0.35 + i * 0.18, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                style={{ originY: 0 }}
+                className="w-1 h-8 bg-[#6E1F28] mb-6 group-hover:h-12 transition-all duration-300"
+              />
               <p className="text-[#8F8A84] text-base leading-relaxed">
                 {t(`home.problem.${key}`)}
               </p>

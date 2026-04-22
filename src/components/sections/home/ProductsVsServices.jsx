@@ -26,6 +26,9 @@ export default function ProductsVsServices() {
           <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#555656]">
             PRODUCTOS VS SERVICIOS
           </span>
+          <h2 className="font-display text-[clamp(1.8rem,3.5vw,3rem)] text-[#F5F3EF] mt-4 max-w-3xl mx-auto leading-tight">
+            Dos caminos para automatizar. <span className="text-[#6E1F28]">Elige el tuyo.</span>
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -34,10 +37,15 @@ export default function ProductsVsServices() {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="p-10 lg:p-14 border border-[#1a1a1a] border-r-0 lg:border-r border-b lg:border-b-0 group hover:bg-[#0d0d0d] transition-colors duration-400"
+            className="p-6 md:p-10 lg:p-14 border border-[#1a1a1a] border-b-0 lg:border-b lg:border-r-0 group hover:bg-[#0d0d0d] transition-colors duration-400"
           >
-            <div className="w-8 h-px bg-[#6E1F28] mb-8" />
-            <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-8 h-px bg-[#6E1F28]" />
+              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28]">
+                PRODUCTOS · LISTOS PARA USAR
+              </span>
+            </div>
+            <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6 text-[#F5F3EF]">
               {t('home.split.left_title')}
             </h3>
             <p className="text-[#8F8A84] text-base mb-8 leading-relaxed">
@@ -61,10 +69,15 @@ export default function ProductsVsServices() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="p-10 lg:p-14 border border-[#1a1a1a] group hover:bg-[#0d0d0d] transition-colors duration-400"
+            className="p-6 md:p-10 lg:p-14 border border-[#1a1a1a] border-t-0 lg:border-t group hover:bg-[#0d0d0d] transition-colors duration-400"
           >
-            <div className="w-8 h-px bg-[#81766C] mb-8" />
-            <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-8 h-px bg-[#81766C]" />
+              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#81766C]">
+                SERVICIOS · A MEDIDA
+              </span>
+            </div>
+            <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6 text-[#F5F3EF]">
               {t('home.split.right_title')}
             </h3>
             <p className="text-[#8F8A84] text-base mb-8 leading-relaxed">

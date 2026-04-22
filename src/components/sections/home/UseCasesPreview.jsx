@@ -26,7 +26,7 @@ export default function UseCasesPreview() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
-              className="p-10 border-r border-b border-[#1a1a1a] md:[&:nth-child(2n)]:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 group hover:bg-[#0d0d0d] transition-colors duration-300"
+              className="p-6 md:p-10 border-b border-[#1a1a1a] md:border-r md:[&:nth-child(2n)]:border-r-0 md:[&:nth-last-child(-n+2)]:border-b-0 group hover:bg-[#0d0d0d] transition-colors duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className="mt-1.5 w-2 h-2 bg-[#6E1F28] flex-shrink-0 rotate-45 group-hover:rotate-0 transition-transform duration-300" />

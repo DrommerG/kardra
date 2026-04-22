@@ -11,7 +11,7 @@
   "home": {
     "hero": {
       "title": "AUTOMATIZA LO QUE TE HACE PERDER TIEMPO",
-      "subtitle": "Convierte procesos manuales, mensajes y tareas repetitivas en sistemas automáticos que operan por ti.",
+      "subtitle": "Recupera el tiempo que pierdes en procesos manuales, mensajes y tareas repetitivas. Kardra los convierte en sistemas automáticos que operan por ti.",
       "support": "Diseñado para empresas que necesitan control, velocidad y escala.",
       "cta1": "Ver productos",
       "cta2": "Ver servicios",
@@ -244,6 +244,10 @@
       {
         "q": "¿Puedo contactar antes de decidir?",
         "a": "Por supuesto. Es lo que recomendamos. Cuéntanos qué proceso quieres automatizar y te explicamos qué opción tiene más sentido para tu caso."
+      },
+      {
+        "q": "¿Cuánto tiempo toma implementar una automatización?",
+        "a": "Depende del tipo de solución. Los productos, al estar prediseñados, pueden implementarse en poco tiempo. Los servicios personalizados requieren una fase previa de análisis y diseño. Cuando nos cuentes tu proceso, podremos darte una estimación realista para tu caso."
       }
     ]
   },

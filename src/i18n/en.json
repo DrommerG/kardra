@@ -11,7 +11,7 @@
   "home": {
     "hero": {
       "title": "AUTOMATE WHAT'S WASTING YOUR TIME",
-      "subtitle": "Turn manual processes, messages, and repetitive tasks into automatic systems that run for you.",
+      "subtitle": "Recover the time you lose on manual processes, messages, and repetitive tasks. Kardra turns them into automated systems that run on their own.",
       "support": "Built for companies that need control, speed, and scale.",
       "cta1": "See products",
       "cta2": "See services",
@@ -19,54 +19,54 @@
     },
     "problem": {
       "main": "Many businesses grow… but their operations stay manual.",
-      "pain1": "Critical information lost in WhatsApp",
+      "pain1": "Information lost in WhatsApp",
       "pain2": "Processes that depend on people",
-      "pain3": "Reports that arrive late or wrong",
+      "pain3": "Reports that arrive late or incorrect",
       "pain4": "Decisions made without clear data",
       "closing": "When your operation can't scale, neither can your business."
     },
     "solution": {
       "title": "KARDRA TURNS PROCESSES INTO SYSTEMS",
-      "text": "We design automations that capture, organize, and process information in real time — without relying on manual tasks.",
-      "support": "Less human error. More control. More operational speed."
+      "text": "We build automations that capture, organize, and process information in real time — with no manual work required.",
+      "support": "Less human error. More control. Faster operations."
     },
     "split": {
       "left_title": "READY-TO-USE SYSTEMS",
       "left_text": "Pre-built solutions to automate common processes quickly.",
-      "left_list": ["Automatic expense tracking", "Automatic income and expense recording", "Automatic management reports (KPIs)", "Automation process templates"],
+      "left_list": ["Automatic expense tracking", "Automatic income and expense tracking", "Automated management reports (KPIs)", "Ready-to-deploy process templates"],
       "left_cta": "See products",
       "right_title": "CUSTOM SOLUTIONS",
       "right_text": "We design and implement automations tailored to your operation.",
-      "right_list": ["Process management consulting", "Activity automation", "Process automation", "Custom activity flow design"],
+      "right_list": ["Process management consulting", "Task automation", "Process automation", "Custom workflow design"],
       "right_cta": "See services"
     },
     "featuredProducts": {
-      "title": "AUTOMATIONS THAT DO IN SECONDS WHAT NOW TAKES YOU HOURS",
+      "title": "AUTOMATIONS THAT TURN HOURS OF WORK INTO SECONDS",
       "items": [
         { "name": "Automatic expense tracking", "text": "Turn manual records into automatically organized data." },
-        { "name": "Automatic income and expense recording", "text": "Centralize and control your financial information in real time." },
-        { "name": "Automatic management reports (KPIs)", "text": "Get clear, updated reports without building them manually." },
-        { "name": "Automation process templates", "text": "Ready-to-implement processes without starting from scratch." }
+        { "name": "Automatic income and expense tracking", "text": "Centralize and control your financial data in real time." },
+        { "name": "Automated management reports (KPIs)", "text": "Get clear, up-to-date reports without building them by hand." },
+        { "name": "Ready-to-deploy process templates", "text": "Ready-to-implement processes — no need to start from scratch." }
       ],
       "cta": "See all products"
     },
     "featuredServices": {
       "title": "AUTOMATION DESIGNED FOR YOUR OPERATION",
       "items": [
-        { "name": "Process management consulting", "text": "We analyze how your business works and identify where you're losing time and control." },
-        { "name": "Activity automation", "text": "We automate repetitive operational tasks that consume time." },
-        { "name": "Process automation", "text": "We turn complete workflows into efficient, scalable systems." },
-        { "name": "Custom activity flow design", "text": "We create solutions adapted to how you work." }
+        { "name": "Process management consulting", "text": "We analyze how your business runs and pinpoint where you're losing time and control." },
+        { "name": "Task automation", "text": "We automate repetitive operational tasks that eat up your time." },
+        { "name": "Process automation", "text": "We turn entire workflows into efficient, scalable systems." },
+        { "name": "Custom workflow design", "text": "We create solutions tailored to the way you work." }
       ],
-      "cta": "Request consultation"
+      "cta": "Request a consultation"
     },
     "howItWorks": {
       "title": "HOW WE WORK",
       "steps": [
-        { "num": "01", "title": "We detect the critical process", "text": "We identify where time or information is being lost." },
-        { "num": "02", "title": "We design the system", "text": "We define how the automation should function." },
-        { "num": "03", "title": "We implement", "text": "We connect tools, flows, and data." },
-        { "num": "04", "title": "You scale", "text": "You operate with more control, speed, and fewer errors." }
+        { "num": "01", "title": "We pinpoint the critical process", "text": "We identify where time or information is being lost." },
+        { "num": "02", "title": "We design the system", "text": "We define exactly how the automation should work." },
+        { "num": "03", "title": "We implement", "text": "We connect tools, workflows, and data." },
+        { "num": "04", "title": "You scale", "text": "You operate with more control, more speed, and fewer errors." }
       ]
     },
     "usecases": {
@@ -80,14 +80,14 @@
     },
     "cta": {
       "title": "YOUR OPERATION DOESN'T NEED MORE MANUAL WORK. IT NEEDS A SYSTEM.",
-      "text": "Tell us what process you want to automate and we'll show you how to do it.",
+      "text": "Tell us what process you want to automate and we'll show you how.",
       "btn1": "Chat on WhatsApp",
       "btn2": "Contact by email"
     }
   },
   "products": {
     "hero": {
-      "title": "AUTOMATIONS THAT DO IN SECONDS WHAT NOW TAKES YOU HOURS",
+      "title": "AUTOMATIONS THAT TURN HOURS OF WORK INTO SECONDS",
       "subtitle": "Deploy ready-to-use systems and eliminate manual tasks from day one.",
       "support": "No lengthy development. No complex processes.",
       "cta1": "Chat on WhatsApp",
@@ -98,26 +98,26 @@
       {
         "title": "AUTOMATIC EXPENSE TRACKING",
         "text": "Turn manual records into automatically organized data.",
-        "benefits": ["Eliminates manual recording", "Reduces errors", "Information available instantly"],
-        "impact": "What you used to log at the end of the day is now done the moment it happens."
+        "benefits": ["Eliminates manual entry", "Reduces errors", "Data available instantly"],
+        "impact": "What you used to log at the end of the day is now captured the moment it happens."
       },
       {
-        "title": "AUTOMATIC INCOME AND EXPENSE RECORDING",
+        "title": "AUTOMATIC INCOME AND EXPENSE TRACKING",
         "text": "Centralize income and expenses without relying on manual records.",
-        "benefits": ["Real-time information", "Automatic organization", "Clear history"],
-        "impact": "Your financial information updated without effort."
+        "benefits": ["Real-time data", "Automatic organization", "Clear history"],
+        "impact": "Your financial information stays up to date — effortlessly."
       },
       {
-        "title": "AUTOMATIC MANAGEMENT REPORTS (KPIs)",
-        "text": "Get automatic reports without having to build them manually.",
-        "benefits": ["Updated KPIs", "Data ready for decisions", "Elimination of manual reporting"],
-        "impact": "What used to take hours now appears automatically."
+        "title": "AUTOMATED MANAGEMENT REPORTS (KPIs)",
+        "text": "Get automated reports without having to build them by hand.",
+        "benefits": ["Up-to-date KPIs", "Data ready for decisions", "No more manual reporting"],
+        "impact": "What used to take hours now happens automatically."
       },
       {
-        "title": "AUTOMATION PROCESS TEMPLATES",
-        "text": "Templates designed to automate common workflows quickly.",
-        "benefits": ["Fast implementation", "Foundation for scaling", "Adaptable to your operation"],
-        "impact": "You don't start from scratch. You start with an advantage."
+        "title": "READY-TO-DEPLOY PROCESS TEMPLATES",
+        "text": "Templates designed to automate common workflows fast.",
+        "benefits": ["Fast implementation", "Built to scale", "Adaptable to your operation"],
+        "impact": "You don't start from scratch. You start ahead."
       }
     ],
     "cta": {
@@ -128,50 +128,50 @@
   },
   "services": {
     "hero": {
-      "title": "WE AUTOMATE YOUR OPERATION THE WAY YOUR BUSINESS WORKS",
-      "subtitle": "We design custom systems to eliminate manual processes and improve efficiency.",
-      "support": "Every company is different. So are the automations.",
-      "cta1": "Request consultation",
+      "title": "WE AUTOMATE YOUR OPERATION AROUND HOW YOUR BUSINESS ACTUALLY WORKS",
+      "subtitle": "We design custom systems that eliminate manual processes and boost efficiency.",
+      "support": "Every company is different. So every automation should be.",
+      "cta1": "Request a consultation",
       "cta2": "Chat on WhatsApp",
       "cta3": "Contact by email"
     },
-    "concept": "Not every process is solved with standard tools.\nSome need to be properly designed from scratch.",
+    "concept": "Not every process can be solved with off-the-shelf tools.\nSome need to be properly designed from scratch.",
     "items": [
       {
         "title": "PROCESS MANAGEMENT CONSULTING",
-        "text": "We analyze your operation and detect inefficiencies.",
-        "benefits": ["Bottleneck identification", "Clear diagnosis", "Foundation for proper automation"],
+        "text": "We analyze your operation and uncover inefficiencies.",
+        "benefits": ["Bottleneck identification", "Clear diagnosis", "The foundation for automating right"],
         "label": "CUSTOM"
       },
       {
-        "title": "ACTIVITY AUTOMATION",
-        "text": "We automate operational activities that consume time.",
+        "title": "TASK AUTOMATION",
+        "text": "We automate the operational tasks that eat up your time.",
         "benefits": ["Less manual work", "More speed", "Fewer errors"],
-        "impact": "Hours of tasks turned into seconds.",
+        "impact": "Hours of work turned into seconds.",
         "label": "CUSTOM"
       },
       {
         "title": "PROCESS AUTOMATION",
-        "text": "We design automations that connect your entire process.",
+        "text": "We design automations that connect your entire process end to end.",
         "benefits": ["Integrated processes", "Continuous flow", "Scalability"],
         "label": "CUSTOM"
       },
       {
-        "title": "CUSTOM ACTIVITY FLOW DESIGN",
-        "text": "We create specific solutions based on how your business works.",
-        "benefits": ["Full adaptation", "Tool integration", "Flexibility"],
+        "title": "CUSTOM WORKFLOW DESIGN",
+        "text": "We build specific solutions around the way your business works.",
+        "benefits": ["Fully tailored", "Tool integration", "Flexibility"],
         "label": "CUSTOM"
       }
     ],
     "timeBlock": {
-      "title": "HOW MUCH TIME CAN YOU RECOVER",
-      "text": "Processes that now take hours can run automatically in seconds.",
-      "examples": ["Manual recording → automatic", "Reports → generated in real time", "Follow-up → automated"],
+      "title": "HOW MUCH TIME YOU CAN GET BACK",
+      "text": "Processes that take hours today can run automatically in seconds.",
+      "examples": ["Manual logging → automatic", "Reports → generated in real time", "Follow-ups → automated"],
       "closing": "The time you recover becomes capacity to grow."
     },
     "cta": {
       "title": "TELL US YOUR PROCESS AND WE'LL SHOW YOU HOW TO AUTOMATE IT",
-      "btn1": "Request consultation",
+      "btn1": "Request a consultation",
       "btn2": "Chat on WhatsApp",
       "btn3": "Contact by email"
     }
@@ -182,37 +182,37 @@
     "items": [
       {
         "title": "WhatsApp-Based Operations",
-        "text": "Companies managing operations through WhatsApp lose critical information daily. We automate the capture and organization of that data."
+        "text": "Companies that run operations through WhatsApp lose critical information every day. We automate the capture and organization of that data."
       },
       {
         "title": "Repetitive Manual Processes",
-        "text": "Teams with repetitive operational tasks that consume time and generate errors. We turn them into automatic flows."
+        "text": "Teams stuck with repetitive operational tasks that burn time and cause errors. We turn them into automated flows."
       },
       {
         "title": "No Data Control",
-        "text": "Businesses without clear visibility into their information. We implement systems that organize and present data when you need it."
+        "text": "Businesses without clear visibility into their own information. We put systems in place that organize and surface your data when you need it."
       },
       {
         "title": "Real-Time Reports",
-        "text": "Operations that need updated data to make decisions. We generate automatic reports without manual effort."
+        "text": "Operations that need up-to-date data to make decisions. We generate automated reports — no manual effort required."
       }
     ],
     "cta": {
-      "title": "DOES YOUR OPERATION LOOK LIKE ANY OF THESE CASES?",
-      "text": "Tell us your process and we'll find the best way to automate it.",
+      "title": "DOES YOUR OPERATION LOOK LIKE ANY OF THESE?",
+      "text": "Tell us about your process and we'll find the best way to automate it.",
       "btn1": "Chat on WhatsApp",
       "btn2": "Contact by email"
     }
   },
   "about": {
     "title": "KARDRA",
-    "text1": "Kardra develops automation solutions to turn manual processes into faster, clearer, and more scalable systems.",
-    "text2": "We work with ready-to-implement products and personalized services, depending on the needs of each operation.",
+    "text1": "Kardra builds automation solutions that turn manual processes into faster, clearer, more scalable systems.",
+    "text2": "We offer ready-to-deploy products and custom services — whatever fits the needs of your operation.",
     "cta": "Contact us"
   },
   "contact": {
     "title": "CONTACT KARDRA",
-    "text": "Tell us what process you want to automate and let's talk about the best way to solve it.",
+    "text": "Tell us what process you want to automate and let's figure out the best way to solve it.",
     "whatsapp": "Chat on WhatsApp",
     "email": "Send email",
     "form": {
@@ -227,28 +227,32 @@
     "items": [
       {
         "q": "Does Kardra offer products or services?",
-        "a": "Both. Kardra offers ready-to-implement products (pre-built automations) and personalized services (automations designed for your operation). You can choose one or combine both."
+        "a": "Both. Kardra offers ready-to-deploy products (pre-built automations) and custom services (automations designed around your operation). You can choose one or combine them."
       },
       {
-        "q": "Are the automations personalized?",
-        "a": "It depends on what you choose. Products are pre-built solutions for common processes. Services are fully customized based on how your business works."
+        "q": "Are the automations customized?",
+        "a": "It depends on what you choose. Products are pre-built solutions for common processes. Services are fully customized to how your business works."
       },
       {
-        "q": "Can a solution be implemented without changing the entire operation?",
-        "a": "Yes. We work modularly. You can start by automating one specific process without transforming your entire operation from the start."
+        "q": "Can a solution be implemented without overhauling my entire operation?",
+        "a": "Yes. We work modularly. You can start by automating one specific process without transforming your whole operation upfront."
       },
       {
-        "q": "How do I know if I need a product or a service?",
-        "a": "If your process is common (expense management, income tracking, reports), a product may work. If your process has particularities specific to your business, a personalized service is more appropriate. We can guide you before you decide."
+        "q": "How do I know whether I need a product or a service?",
+        "a": "If your process is a common one (expense management, income tracking, reports), a product will likely do the job. If your process has particularities unique to your business, a custom service is the better fit. We can guide you before you decide."
       },
       {
         "q": "Can I reach out before deciding?",
-        "a": "Absolutely. That's what we recommend. Tell us what process you want to automate and we'll explain which option makes the most sense for your case."
+        "a": "Absolutely — that's what we recommend. Tell us what process you want to automate and we'll walk you through which option makes the most sense for your case."
+      },
+      {
+        "q": "How long does it take to implement an automation?",
+        "a": "It depends on the type of solution. Products, being pre-built, can be implemented quickly. Custom services require a prior analysis and design phase. Once you tell us about your process, we can give you a realistic estimate for your case."
       }
     ]
   },
   "footer": {
-    "tagline": "Turn manual processes into automatic systems.",
+    "tagline": "Turning manual processes into automated systems.",
     "nav_title": "Navigation",
     "contact_title": "Contact",
     "rights": "All rights reserved."
