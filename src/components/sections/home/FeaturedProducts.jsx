@@ -9,48 +9,72 @@ const base = '/kardra'
 export default function FeaturedProducts() {
   const { t } = useTranslation()
   const ref = useRef()
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-60px' })
   const items = t('home.featuredProducts.items', { returnObjects: true })
 
   return (
-    <section ref={ref} className="section-padding bg-[#0d0d0d] border-t border-[#111]">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-14"
-        >
-          <span className="inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28] border border-[#6E1F28]/40 px-3 py-1 mb-6">
-            PRODUCTOS
-          </span>
-          <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] max-w-4xl">
-            {t('home.featuredProducts.title')}
-          </h2>
-        </motion.div>
+    <section ref={ref} className="bg-[#19171b] relative overflow-hidden">
+      <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#1a1a1a] mb-10">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-0">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-mono text-[#d29f22] text-xs tracking-widest">04</span>
+              <div className="flex-1 h-px bg-[#2e2c30]" />
+              <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">PRODUCTOS</span>
+            </div>
+            <h2 className="font-display text-[clamp(2rem,4.5vw,5.5rem)] max-w-3xl leading-[0.9]">
+              {t('home.featuredProducts.title')}
+            </h2>
+          </motion.div>
+        </div>
+
+        {/* Editorial list */}
+        <div className="mt-12 border-t border-[#d29f22]/30">
           {items.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
-              className="p-8 border-r border-b border-[#1a1a1a] last:border-r-0 [&:nth-child(n+3)]:border-b-0 sm:[&:nth-child(2)]:border-r-0 lg:[&:nth-child(2)]:border-r lg:[&:nth-child(n+3)]:border-b group hover:bg-[#0f0f0f] transition-colors duration-300"
+              initial={{ opacity: 0, x: -30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.1 + i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ x: 6 }}
+              style={{ transition: 'transform 0.2s ease' }}
+              className="group grid grid-cols-12 items-start py-8 md:py-10 border-b border-[#2e2c30] cursor-default"
             >
-              <div className="font-display text-4xl text-[#333434] mb-4 group-hover:text-[#6E1F28] transition-colors duration-300">
-                0{i + 1}
+              {/* Number */}
+              <div className="col-span-2 md:col-span-1 font-display text-[clamp(3rem,5vw,6rem)] text-[#2e2c30] group-hover:text-[#d29f22]/30 transition-colors duration-400 leading-none select-none">
+                {String(i + 1).padStart(2, '0')}
               </div>
-              <h4 className="font-display text-xl mb-3 text-[#D1CBC2]">{item.name}</h4>
-              <p className="text-[#555656] text-sm leading-relaxed">{item.text}</p>
+
+              {/* Content */}
+              <div className="col-span-9 md:col-span-10 pl-4 md:pl-8">
+                <h4 className="font-display text-[clamp(1.4rem,2.5vw,2.2rem)] text-[#f0ede8] mb-2 group-hover:text-[#d29f22] transition-colors duration-300 leading-[0.95]">
+                  {item.name}
+                </h4>
+                <p className="text-[#6a6868] text-sm leading-relaxed max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-1 group-hover:translate-y-0" style={{ transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
+                  {item.text}
+                </p>
+              </div>
+
+              {/* Arrow */}
+              <div className="col-span-1 flex justify-end items-center">
+                <span className="text-[#d29f22] text-lg opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
+              </div>
             </motion.div>
           ))}
         </div>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.6 }}
+          className="mt-12"
         >
           <Link to={`${base}/products`}>
             <Button variant="primary">{t('home.featuredProducts.cta')}</Button>

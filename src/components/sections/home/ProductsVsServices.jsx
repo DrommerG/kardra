@@ -10,93 +10,107 @@ export default function ProductsVsServices() {
   const { t } = useTranslation()
   const ref = useRef()
   const inView = useInView(ref, { once: true, margin: '-80px' })
-
-  const leftList = t('home.split.left_list', { returnObjects: true })
+  const leftList  = t('home.split.left_list',  { returnObjects: true })
   const rightList = t('home.split.right_list', { returnObjects: true })
 
   return (
-    <section ref={ref} className="section-padding bg-[#0A0A0A] border-t border-[#111]">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="bg-[#252628] relative overflow-hidden">
+
+      {/* Top gold rule */}
+      <div className="h-[2px] bg-[#d29f22]" />
+
+      <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="mb-16"
         >
-          <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#555656]">
-            PRODUCTOS VS SERVICIOS
-          </span>
-          <h2 className="font-display text-[clamp(1.8rem,3.5vw,3rem)] text-[#F5F3EF] mt-4 max-w-3xl mx-auto leading-tight">
-            Dos caminos para automatizar. <span className="text-[#6E1F28]">Elige el tuyo.</span>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="font-mono text-[#d29f22] text-xs tracking-widest">03</span>
+            <div className="flex-1 h-px bg-[#2e2c30]" />
+            <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">DOS CAMINOS</span>
+          </div>
+          <h2 className="font-display text-[clamp(2rem,4vw,5rem)] leading-[0.9]">
+            Dos formas de automatizar.<br />
+            <span className="text-[#d29f22]">Elige la tuya.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* Left — Products */}
+        {/* Split columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+
+          {/* LEFT — Productos */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-            className="p-6 md:p-10 lg:p-14 border border-[#1a1a1a] border-b-0 lg:border-b lg:border-r-0 group hover:bg-[#0d0d0d] transition-colors duration-400"
+            transition={{ duration: 0.8 }}
+            className="border-2 border-[#d29f22] p-8 md:p-12 lg:p-14 relative group"
+            style={{ boxShadow: '6px 6px 0px #d29f22' }}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-[#6E1F28]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28]">
-                PRODUCTOS · LISTOS PARA USAR
-              </span>
+            <div className="absolute top-6 left-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-2 py-0.5">
+              PRODUCTOS · LISTOS PARA USAR
             </div>
-            <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6 text-[#F5F3EF]">
-              {t('home.split.left_title')}
-            </h3>
-            <p className="text-[#8F8A84] text-base mb-8 leading-relaxed">
-              {t('home.split.left_text')}
-            </p>
-            <ul className="flex flex-col gap-3 mb-10">
-              {leftList.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[#D1CBC2] text-sm">
-                  <span className="mt-1.5 w-1 h-1 bg-[#6E1F28] rounded-full flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link to={`${base}/products`}>
-              <Button variant="primary">{t('home.split.left_cta')}</Button>
-            </Link>
+
+            <div className="mt-10">
+              <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6 text-[#f0ede8] leading-[0.9]">
+                {t('home.split.left_title')}
+              </h3>
+              <p className="text-[#6a6868] text-base mb-8 leading-relaxed">
+                {t('home.split.left_text')}
+              </p>
+              <ul className="flex flex-col gap-0 mb-10 border-t border-[#2e2c30]">
+                {leftList.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 py-3 border-b border-[#2e2c30] text-[#f0ede8]/70 text-sm">
+                    <span className="mt-2 w-1.5 h-1.5 bg-[#d29f22] flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to={`${base}/products`}>
+                <Button variant="gold">{t('home.split.left_cta')}</Button>
+              </Link>
+            </div>
           </motion.div>
 
-          {/* Right — Services */}
+          {/* RIGHT — Servicios */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="p-6 md:p-10 lg:p-14 border border-[#1a1a1a] border-t-0 lg:border-t group hover:bg-[#0d0d0d] transition-colors duration-400"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="border border-[#2e2c30] p-8 md:p-12 lg:p-14 relative group hover:border-[#d29f22]/30 transition-colors duration-400 lg:-ml-[2px] lg:mt-8"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-[#81766C]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#81766C]">
-                SERVICIOS · A MEDIDA
-              </span>
+            <div className="absolute top-6 left-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6a6868] border border-[#6a6868]/40 px-2 py-0.5">
+              SERVICIOS · A MEDIDA
             </div>
-            <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6 text-[#F5F3EF]">
-              {t('home.split.right_title')}
-            </h3>
-            <p className="text-[#8F8A84] text-base mb-8 leading-relaxed">
-              {t('home.split.right_text')}
-            </p>
-            <ul className="flex flex-col gap-3 mb-10">
-              {rightList.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[#D1CBC2] text-sm">
-                  <span className="mt-1.5 w-1 h-1 bg-[#81766C] rounded-full flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link to={`${base}/services`}>
-              <Button variant="outline">{t('home.split.right_cta')}</Button>
-            </Link>
+
+            <div className="mt-10">
+              <h3 className="font-display text-[clamp(2rem,3.5vw,3.5rem)] mb-6 text-[#f0ede8] leading-[0.9]">
+                {t('home.split.right_title')}
+              </h3>
+              <p className="text-[#6a6868] text-base mb-8 leading-relaxed">
+                {t('home.split.right_text')}
+              </p>
+              <ul className="flex flex-col gap-0 mb-10 border-t border-[#2e2c30]">
+                {rightList.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 py-3 border-b border-[#2e2c30] text-[#f0ede8]/70 text-sm">
+                    <span className="mt-2 w-1.5 h-1.5 bg-[#6a6868] flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to={`${base}/services`}>
+                <Button variant="outline">{t('home.split.right_cta')}</Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom gold rule */}
+      <div className="h-[2px] bg-gradient-to-r from-[#d29f22] to-transparent" />
     </section>
   )
 }

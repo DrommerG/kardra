@@ -1,6 +1,13 @@
-export default function SectionLabel({ children, className = '' }) {
+export default function SectionLabel({ children, className = '', color = 'gold' }) {
+  const colors = {
+    gold:  'text-[#d29f22] border-[#d29f22]/40',
+    red:   'text-[#5d0018] border-[#5d0018]/40',
+    muted: 'text-[#6a6868] border-[#6a6868]/40',
+    cream: 'text-[#f0ede8] border-[#f0ede8]/40',
+  }
   return (
-    <span className={`inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.25em] uppercase text-[#6E1F28] border border-[#6E1F28]/40 px-3 py-1 mb-6 ${className}`}>
+    <span className={`inline-flex items-center gap-2 text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase border px-3 py-1 mb-6 ${colors[color] ?? colors.gold} ${className}`}>
+      <span className="w-1.5 h-1.5 bg-current" />
       {children}
     </span>
   )

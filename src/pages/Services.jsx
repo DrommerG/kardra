@@ -15,58 +15,44 @@ function ServiceCard({ item, index }) {
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.15, duration: 0.6 }}
-      className="border border-[#1a1a1a] p-6 md:p-10 lg:p-14 group hover:border-[#81766C]/40 transition-colors duration-400 relative overflow-hidden"
+      transition={{ delay: index * 0.1, duration: 0.7 }}
+      className="border border-[#2e2c30] p-8 md:p-12 lg:p-16 group hover:border-[#d29f22]/30 transition-colors duration-400 relative overflow-hidden bg-[#19171b]"
     >
-      {/* CUSTOM label */}
-      <div className="absolute top-6 right-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] text-[#81766C] border border-[#81766C]/40 bg-[#0A0A0A]/80 backdrop-blur-sm px-2.5 py-1 z-10">
+      {/* CUSTOM badge */}
+      <div className="absolute top-6 right-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] text-[#6a6868] border border-[#6a6868]/40 px-2.5 py-1">
         {item.label}
       </div>
+      <span className="absolute bottom-0 left-0 h-[2px] bg-[#d29f22] w-0 group-hover:w-full transition-all duration-600 ease-out" />
 
-      {/* Hover horizontal line */}
-      <span className="absolute bottom-0 left-0 h-px bg-[#6E1F28] w-0 group-hover:w-full transition-all duration-700 ease-out" />
-
-      <div className="flex flex-col lg:flex-row lg:gap-16 mt-6 lg:mt-4">
-        <div className="lg:w-1/3 mb-6 lg:mb-0 min-w-0">
-          <div className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#111] group-hover:text-[#1a1613] transition-colors mb-4 leading-[0.85] tracking-tight break-all">
-            0{index + 1}
+      <div className="flex flex-col lg:flex-row lg:gap-16 mt-4">
+        <div className="lg:w-2/5 mb-8 lg:mb-0">
+          <div className="font-display text-[8rem] md:text-[10rem] lg:text-[12rem] text-[#252628] group-hover:text-[#d29f22]/15 transition-colors duration-400 leading-[0.8] select-none">
+            {String(index + 1).padStart(2, '0')}
           </div>
-          <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] text-[#F5F3EF] mb-4">
+          <h2 className="font-display text-[clamp(1.8rem,3vw,3rem)] text-[#f0ede8] mb-4 leading-[0.9] -mt-4">
             {item.title}
           </h2>
-          <p className="text-[#8F8A84] text-base leading-relaxed">{item.text}</p>
+          <p className="text-[#6a6868] text-base leading-relaxed">{item.text}</p>
         </div>
 
-        <div className="lg:flex-1 min-w-0">
-          <div className="mb-8">
-            <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.25em] uppercase text-[#555656] mb-4">
-              BENEFICIOS
-            </p>
-            <ul className="flex flex-col gap-2">
-              {item.benefits.map((b, i) => (
-                <li key={i} className="flex items-center gap-3 text-[#D1CBC2] text-sm">
-                  <span className="w-4 h-px bg-[#81766C]" />
-                  {b}
-                </li>
-              ))}
-            </ul>
+        <div className="lg:flex-1">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-6 h-[2px] bg-[#d29f22]" />
+            <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.25em] uppercase text-[#6a6868]">BENEFICIOS</p>
           </div>
-
+          <ul className="flex flex-col gap-0 border-t border-[#2e2c30] mb-10">
+            {item.benefits.map((b, i) => (
+              <li key={i} className="flex items-center gap-4 py-4 border-b border-[#2e2c30] text-[#f0ede8]/80 text-sm">
+                <span className="w-4 h-[2px] bg-[#6a6868] flex-shrink-0" />
+                {b}
+              </li>
+            ))}
+          </ul>
           {item.impact && (
-            <div className="relative border-l-2 border-[#81766C] pl-6 sm:pl-8 pt-6 pr-2 sm:pr-4">
-              <span className="absolute -top-2 left-2 sm:left-4 font-display text-6xl sm:text-7xl lg:text-8xl leading-none text-[#6E1F28]/20 select-none pointer-events-none">
-                &ldquo;
-              </span>
-              <p className="relative text-[#D1CBC2] text-base sm:text-lg lg:text-xl italic leading-relaxed">{item.impact}</p>
+            <div className="relative border-l-2 border-[#d29f22] pl-6 py-2">
+              <p className="text-[#f0ede8] text-base md:text-lg leading-relaxed">{item.impact}</p>
             </div>
           )}
-
-          {/* Expressive separator */}
-          <div className="mt-10 flex items-center gap-3">
-            <span className="h-px flex-1 bg-gradient-to-r from-[#81766C]/50 via-[#81766C]/20 to-transparent" />
-            <span className="w-1.5 h-1.5 bg-[#6E1F28] rotate-45" />
-            <span className="h-px w-12 bg-[#6E1F28]/40" />
-          </div>
         </div>
       </div>
     </motion.div>
@@ -77,75 +63,70 @@ export default function Services() {
   const { t } = useTranslation()
   const timeRef = useRef()
   const timeInView = useInView(timeRef, { once: true, margin: '-80px' })
-  const items = t('services.items', { returnObjects: true })
+  const items   = t('services.items',            { returnObjects: true })
   const examples = t('services.timeBlock.examples', { returnObjects: true })
 
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-[#19171b]">
       <PageHero
         label="SERVICIOS"
         title={t('services.hero.title')}
         subtitle={t('services.hero.subtitle')}
         support={t('services.hero.support')}
-        labelColor="#81766C"
+        minHeight="60vh"
       >
         <Button variant="primary" href={WA_URL} target="_blank" className="w-full sm:w-auto justify-center">{t('services.hero.cta1')}</Button>
         <Button variant="outline" href={WA_URL} target="_blank" className="w-full sm:w-auto justify-center">{t('services.hero.cta2')}</Button>
-        <Button variant="ghost" href={EMAIL_URL} className="w-full sm:w-auto justify-center">{t('services.hero.cta3')}</Button>
+        <Button variant="ghost"   href={EMAIL_URL}              className="w-full sm:w-auto justify-center">{t('services.hero.cta3')}</Button>
       </PageHero>
 
       {/* Concept */}
-      <section className="section-padding border-b border-[#111]">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-display text-[clamp(1.8rem,3.5vw,3.5rem)] text-[#555656] max-w-3xl whitespace-pre-line leading-[1.1]">
-            {t('services.concept')}
-          </p>
-        </div>
+      <section className="px-6 md:px-12 lg:px-20 py-16 md:py-20 border-b border-[#2e2c30] bg-[#252628]">
+        <p className="font-display text-[clamp(1.8rem,3.5vw,4rem)] text-[#6a6868] max-w-3xl whitespace-pre-line leading-[0.95]">
+          {t('services.concept')}
+        </p>
       </section>
 
-      {/* Services list */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-0 flex flex-col gap-0">
+      <section className="flex flex-col gap-0">
         {items.map((item, i) => (
           <ServiceCard key={i} item={item} index={i} />
         ))}
       </section>
 
       {/* Time recovery block */}
-      <section ref={timeRef} className="section-padding border-t border-[#111] bg-[#0d0d0d] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#6E1F28]/[0.06] blur-3xl pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <section ref={timeRef} className="px-6 md:px-12 lg:px-20 py-20 md:py-28 bg-[#252628] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#d29f22]/[0.04] blur-3xl pointer-events-none" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={timeInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-[#6E1F28]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28]">
-                RECUPERA TIEMPO
-              </span>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-6 h-[2px] bg-[#d29f22]" />
+              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22]">RECUPERA TIEMPO</span>
             </div>
-            <h2 className="font-display text-[clamp(2.5rem,4.5vw,5rem)] mb-6 leading-[0.95]">
+            <h2 className="font-display text-[clamp(2.5rem,5vw,6rem)] mb-6 leading-[0.9]">
               {t('services.timeBlock.title')}
             </h2>
-            <p className="text-[#D1CBC2] text-lg mb-8 leading-relaxed">
-              {t('services.timeBlock.text')}
-            </p>
-            <p className="text-[#F5F3EF] text-lg font-['Barlow'] font-600 border-l-2 border-[#6E1F28] pl-4">
-              {t('services.timeBlock.closing')}
-            </p>
+            <p className="text-[#6a6868] text-lg mb-8 leading-relaxed">{t('services.timeBlock.text')}</p>
+            <div className="border-l-2 border-[#d29f22] pl-5">
+              <p className="text-[#f0ede8] text-base leading-relaxed font-['Barlow'] font-600">
+                {t('services.timeBlock.closing')}
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={timeInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-0 border border-[#1a1a1a]"
+            className="border border-[#2e2c30]"
           >
             {examples.map((ex, i) => (
-              <div key={i} className="p-6 border-b border-[#1a1a1a] last:border-b-0 flex items-center gap-4 group hover:bg-[#0f0f0f] transition-colors">
-                <div className="w-2 h-2 bg-[#6E1F28] flex-shrink-0 group-hover:scale-125 transition-transform" />
-                <span className="text-[#D1CBC2] text-sm">{ex}</span>
+              <div key={i} className="flex items-center gap-4 p-6 border-b border-[#2e2c30] last:border-b-0 group hover:bg-[#2e2c30]/50 transition-colors">
+                <div className="w-2 h-2 bg-[#d29f22] flex-shrink-0 group-hover:scale-125 transition-transform" />
+                <span className="text-[#6a6868] text-sm group-hover:text-[#f0ede8] transition-colors">{ex}</span>
               </div>
             ))}
           </motion.div>
@@ -154,12 +135,11 @@ export default function Services() {
 
       <CTASection
         title={t('services.cta.title')}
-        glowPosition="right"
-        glowColor="#4A0F1C"
+        bg="dark"
         buttons={[
           { variant: 'primary', href: WA_URL, target: '_blank', label: t('services.cta.btn1') },
           { variant: 'outline', href: WA_URL, target: '_blank', label: t('services.cta.btn2') },
-          { variant: 'ghost', href: EMAIL_URL, label: t('services.cta.btn3') },
+          { variant: 'ghost',   href: EMAIL_URL,                 label: t('services.cta.btn3') },
         ]}
       />
     </div>

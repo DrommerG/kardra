@@ -1,69 +1,82 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
 export default function Solution() {
   const { t } = useTranslation()
   const ref = useRef()
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const clipPath = useTransform(scrollYProgress, [0, 0.5], ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.0])
 
   return (
-    <section ref={ref} className="section-padding bg-[#0d0d0d] border-t border-[#1a1a1a]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left: decorative number */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.9 }}
-          className="hidden lg:block relative overflow-hidden aspect-[4/3]"
-        >
-          <img
-            src="/kardra/assets/ai/solution_section.png"
-            alt=""
-            className="w-full h-full object-cover opacity-70"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/60 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
-        </motion.div>
+    <section ref={ref} className="bg-[#19171b] relative overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
 
-        {/* Right: content */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28] border border-[#6E1F28]/40 px-3 py-1 mb-8">
-              SOLUCIÓN
-            </span>
-            <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] mb-8">
-              {t('home.solution.title')}
-            </h2>
-            <p className="text-[#8F8A84] text-lg leading-relaxed mb-6 max-w-md">
-              {t('home.solution.text')}
-            </p>
-            <p className="text-[#D1CBC2] text-base font-['Barlow'] font-600">
-              {t('home.solution.support')}
-            </p>
+        {/* Left: image (scroll reveal) */}
+        <div className="relative overflow-hidden min-h-[360px] lg:min-h-0">
+          <motion.div style={{ clipPath }} className="absolute inset-0">
+            <motion.img
+              src="/kardra/assets/ai/solution_section.png"
+              alt=""
+              style={{ scale: imgScale }}
+              className="w-full h-full object-cover opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#19171b]/70" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#19171b]/60" />
           </motion.div>
 
-          {/* Metrics row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-12 grid grid-cols-3 gap-0 border border-[#1a1a1a]"
-          >
+          {/* Floating metrics on image */}
+          <div className="absolute bottom-8 left-8 right-8 grid grid-cols-3 gap-0">
             {[
-              { label: 'TIEMPO', value: '−' },
-              { label: 'CONTROL', value: '+' },
-              { label: 'ESCALA', value: '↑' },
-            ].map(({ label, value }) => (
-              <div key={label} className="p-6 border-r border-[#1a1a1a] last:border-r-0 text-center">
-                <div className="font-display text-4xl text-[#6E1F28] mb-2">{value}</div>
-                <div className="text-[10px] font-['Barlow'] font-600 tracking-[0.25em] text-[#555656] uppercase">{label}</div>
-              </div>
+              { symbol: '−', label: 'TIEMPO' },
+              { symbol: '+', label: 'CONTROL' },
+              { symbol: '↑', label: 'ESCALA' },
+            ].map(({ symbol, label }) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="border border-[#2e2c30] bg-[#19171b]/80 backdrop-blur-sm p-4 text-center"
+              >
+                <div className="font-display text-3xl text-[#d29f22] mb-1">{symbol}</div>
+                <div className="text-[9px] font-['Barlow'] font-600 tracking-[0.2em] text-[#6a6868] uppercase">{label}</div>
+              </motion.div>
             ))}
+          </div>
+        </div>
+
+        {/* Right: content */}
+        <div className="px-8 md:px-12 lg:px-16 py-20 md:py-28 flex flex-col justify-center">
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Index + label */}
+            <div className="flex items-center gap-4 mb-10">
+              <span className="font-mono text-[#d29f22] text-xs tracking-widest">02</span>
+              <div className="flex-1 h-px bg-[#2e2c30]" />
+              <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">SOLUCIÓN</span>
+            </div>
+
+            <h2 className="font-display text-[clamp(2.5rem,5vw,6rem)] mb-8 leading-[0.9]">
+              {t('home.solution.title')}
+            </h2>
+            <p className="text-[#6a6868] text-base md:text-lg leading-relaxed mb-6 max-w-md">
+              {t('home.solution.text')}
+            </p>
+
+            {/* Accent blockquote */}
+            <div className="flex items-start gap-4 mt-8">
+              <div className="w-1 h-full min-h-[3rem] bg-[#d29f22] flex-shrink-0" />
+              <p className="text-[#f0ede8] text-base font-['Barlow'] font-600 leading-relaxed">
+                {t('home.solution.support')}
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

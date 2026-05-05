@@ -9,13 +9,19 @@ const KubeScene = lazy(() => import('../../3d/KubeScene'))
 const base = '/kardra'
 const WA = `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
 
-const wordVariant = {
-  hidden: { y: '100%', opacity: 0 },
-  visible: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: { delay: i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  }),
+/* Reveal a line of text from below (mask effect) */
+function RevealLine({ children, delay = 0, className = '' }) {
+  return (
+    <div className={`overflow-hidden ${className}`}>
+      <motion.div
+        initial={{ y: '110%' }}
+        animate={{ y: '0%' }}
+        transition={{ duration: 1.1, delay, ease: [0.76, 0, 0.24, 1] }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  )
 }
 
 export default function Hero() {
@@ -33,79 +39,100 @@ export default function Hero() {
     return () => window.removeEventListener('mousemove', onMove)
   }, [])
 
-  const titleWords = t('home.hero.title').split(' ')
+  const words = t('home.hero.title').split(' ')
+  const line1 = words.slice(0, 1)          // AUTOMATIZA
+  const line2 = words.slice(1, 5)          // LO QUE TE HACE
+  const line3 = words.slice(5)             // PERDER TIEMPO
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
-      {/* Background image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.07]"
-        style={{ backgroundImage: 'url(/kardra/assets/ai/hero_bg.png)' }} />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40" />
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#19171b]">
 
-      {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.03]"
-        style={{ backgroundImage: 'linear-gradient(#F5F3EF 1px, transparent 1px), linear-gradient(90deg, #F5F3EF 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+      {/* Left gold vertical accent */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#d29f22]" />
 
-      {/* Red accent line */}
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#6E1F28] to-transparent" />
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(#f0ede8 1px, transparent 1px), linear-gradient(90deg, #f0ede8 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+        }}
+      />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-24 lg:py-0 min-h-screen">
+      {/* Section index */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.2, duration: 0.6 }}
+        className="absolute top-8 right-6 md:right-12 lg:right-20 font-mono text-[10px] text-[#6a6868] tracking-[0.3em] uppercase select-none"
+      >
+        00 / INICIO
+      </motion.div>
 
-        {/* Left: Copy */}
-        <div>
-          <div className="mb-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6E1F28] border border-[#6E1F28]/40 px-3 py-1"
-            >
-              KARDRA — AUTOMATIZACIÓN
-            </motion.div>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              style={{ originX: 0 }}
-              className="mt-3 h-px w-40 bg-gradient-to-r from-[#6E1F28] via-[#6E1F28]/60 to-transparent"
-            />
-          </div>
+      {/* ── TOP: MASSIVE TITLE ──────────────────────────────── */}
+      <div className="flex-1 flex flex-col justify-end pt-24 pb-0 px-6 md:px-12 lg:px-20">
 
-          <h1 className="font-display text-[clamp(2.25rem,7vw,6.5rem)] leading-[0.9] mb-8">
-            {titleWords.map((word, i) => (
-              <span
-                key={i}
-                className="inline-block overflow-hidden align-bottom mr-4 last:mr-0"
-              >
-                <motion.span
-                  custom={i}
-                  variants={wordVariant}
-                  initial="hidden"
-                  animate="visible"
-                  className="inline-block"
-                >
-                  {word === 'TIEMPO' ? (
-                    <span className="text-[#6E1F28]">{word}</span>
-                  ) : word}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
+        {/* Label */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex items-center gap-3 mb-8"
+        >
+          <span className="w-8 h-[2px] bg-[#d29f22]" />
+          <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22]">
+            KARDRA — AUTOMATIZACIÓN
+          </span>
+        </motion.div>
 
+        {/* MASSIVE 3-line title */}
+        <div className="font-display text-[clamp(3.8rem,10vw,13rem)] leading-[0.88] mb-0">
+          <RevealLine delay={0.15}>
+            <span className="block">
+              {line1.join(' ')}
+            </span>
+          </RevealLine>
+          <RevealLine delay={0.28} className="ml-[6%] md:ml-[12%]">
+            <span className="block">
+              {line2.join(' ')}
+            </span>
+          </RevealLine>
+          <RevealLine delay={0.41} className="ml-[18%] md:ml-[28%]">
+            <span className="block">
+              {line3.slice(0, -1).join(' ')}{' '}
+              <span className="text-[#d29f22]">{line3[line3.length - 1]}</span>
+            </span>
+          </RevealLine>
+        </div>
+
+        {/* Gold horizontal divider */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          style={{ originX: 0 }}
+          className="mt-10 h-[2px] bg-gradient-to-r from-[#d29f22] via-[#d29f22]/60 to-transparent"
+        />
+      </div>
+
+      {/* ── BOTTOM: subtitle + CTA + 3D ──────────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 px-6 md:px-12 lg:px-20 pt-10 pb-16 gap-8 lg:gap-0">
+
+        {/* Left: copy + CTAs */}
+        <div className="flex flex-col justify-end">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-[#8F8A84] text-lg md:text-xl leading-relaxed mb-4 max-w-lg"
+            transition={{ delay: 1.0, duration: 0.7 }}
+            className="text-[#6a6868] text-base md:text-lg leading-relaxed mb-3 max-w-lg"
           >
             {t('home.hero.subtitle')}
           </motion.p>
-
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="text-[#555656] text-sm tracking-wide mb-10"
+            transition={{ delay: 1.15, duration: 0.6 }}
+            className="text-[#f0ede8]/40 text-sm mb-10"
           >
             {t('home.hero.support')}
           </motion.p>
@@ -113,44 +140,48 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.5 }}
-            className="flex flex-col sm:flex-row sm:flex-wrap gap-3"
+            transition={{ delay: 1.3, duration: 0.5 }}
+            className="flex flex-col sm:flex-row gap-3"
           >
             <Link to={`${base}/products`} className="w-full sm:w-auto">
-              <Button variant="primary" className="w-full sm:w-auto">{t('home.hero.cta1')}</Button>
+              <Button variant="primary" className="w-full sm:w-auto justify-center">
+                {t('home.hero.cta1')}
+              </Button>
             </Link>
             <Link to={`${base}/services`} className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full sm:w-auto">{t('home.hero.cta2')}</Button>
+              <Button variant="outline" className="w-full sm:w-auto justify-center">
+                {t('home.hero.cta2')}
+              </Button>
             </Link>
-            <Button variant="ghost" href={WA} target="_blank" className="w-full sm:w-auto">
+            <Button variant="ghost" href={WA} target="_blank" className="w-full sm:w-auto justify-center">
               {t('home.hero.cta3')}
             </Button>
           </motion.div>
         </div>
 
-        {/* Right: 3D */}
+        {/* Right: 3D cube — elevated to overlap gold line */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1.2 }}
-          className="relative h-[280px] md:h-[400px] lg:h-[560px] w-full"
+          transition={{ delay: 0.5, duration: 1.4 }}
+          className="relative h-[260px] md:h-[360px] lg:h-[440px] lg:-mt-24"
         >
           <Suspense fallback={<div className="w-full h-full" />}>
             <KubeScene mouse={mouse} />
           </Suspense>
 
-          {/* Floating labels */}
+          {/* Floating keyword labels */}
           {[
-            { text: 'SYSTEM', pos: 'top-8 right-12', delay: 1.4 },
-            { text: 'DATA', pos: 'bottom-16 left-8', delay: 1.6 },
-            { text: 'FLOW', pos: 'top-1/2 right-4', delay: 1.8 },
+            { text: 'SISTEMA', pos: 'top-4 right-8',   delay: 1.6 },
+            { text: 'DATOS',   pos: 'bottom-12 left-6', delay: 1.8 },
+            { text: 'FLUJO',   pos: 'top-1/2 right-2',  delay: 2.0 },
           ].map(({ text, pos, delay }) => (
             <motion.span
               key={text}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay, duration: 0.6 }}
-              className={`absolute ${pos} text-[10px] font-['Barlow'] font-600 tracking-[0.3em] text-[#333434] uppercase pointer-events-none`}
+              className={`absolute ${pos} text-[9px] font-['Barlow'] font-600 tracking-[0.3em] text-[#d29f22]/50 uppercase pointer-events-none`}
             >
               {text}
             </motion.span>
@@ -162,14 +193,15 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 2.4, duration: 0.6 }}
+        className="absolute bottom-6 left-6 md:left-12 lg:left-20 flex items-center gap-3"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-          className="w-px h-8 bg-gradient-to-b from-[#333434] to-transparent"
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          className="w-[2px] h-8 bg-gradient-to-b from-[#d29f22] to-transparent"
         />
+        <span className="text-[9px] font-['Barlow'] tracking-[0.3em] uppercase text-[#6a6868]">SCROLL</span>
       </motion.div>
     </section>
   )

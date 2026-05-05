@@ -4,22 +4,19 @@ export default function LanguageToggle({ className = '' }) {
   const { i18n } = useTranslation()
   const current = i18n.language?.startsWith('en') ? 'en' : 'es'
 
-  const toggle = (lang) => {
-    if (lang !== current) i18n.changeLanguage(lang)
-  }
+  const toggle = (lang) => { if (lang !== current) i18n.changeLanguage(lang) }
 
   return (
-    <div className={`flex items-center gap-1 text-xs font-['Barlow'] font-600 tracking-widest ${className}`}>
+    <div className={`flex items-center gap-0 text-[10px] font-['Barlow'] font-600 tracking-widest ${className}`}>
       <button
         onClick={() => toggle('es')}
-        className={`px-1.5 py-0.5 transition-colors duration-150 ${current === 'es' ? 'text-[#F5F3EF]' : 'text-[#555656] hover:text-[#8F8A84]'}`}
+        className={`px-2 py-1 transition-colors duration-150 border-r border-[#2e2c30] ${current === 'es' ? 'text-[#d29f22]' : 'text-[#6a6868] hover:text-[#f0ede8]'}`}
       >
         ES
       </button>
-      <span className="text-[#333434]">|</span>
       <button
         onClick={() => toggle('en')}
-        className={`px-1.5 py-0.5 transition-colors duration-150 ${current === 'en' ? 'text-[#F5F3EF]' : 'text-[#555656] hover:text-[#8F8A84]'}`}
+        className={`px-2 py-1 transition-colors duration-150 ${current === 'en' ? 'text-[#d29f22]' : 'text-[#6a6868] hover:text-[#f0ede8]'}`}
       >
         EN
       </button>

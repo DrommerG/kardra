@@ -1,103 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --black: #0A0A0A;
-  --gray-deep: #333434;
-  --gray-mid: #555656;
-  --taupe: #81766C;
-  --stone: #8F8A84;
-  --sand: #D1CBC2;
-  --bone: #E4E0DA;
-  --red-dark: #6E1F28;
-  --wine: #4A0F1C;
-  --white-raw: #F5F3EF;
+  --kd-black: #19171b;
+  --kd-gold:  #d29f22;
+  --kd-gray:  #252628;
+  --kd-red:   #5d0018;
+  --kd-cream: #f0ede8;
+  --kd-muted: #6a6868;
+  --kd-border: #2e2c30;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
-  background-color: #0A0A0A;
+  background-color: #19171b;
 }
 
 body {
-  background-color: #0A0A0A;
-  color: #F5F3EF;
+  background-color: #19171b;
+  color: #f0ede8;
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
-  line-height: 0.95;
+  line-height: 0.9;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
-}
-::-webkit-scrollbar-thumb {
-  background: #333434;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #6E1F28;
-}
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #19171b; }
+::-webkit-scrollbar-thumb { background: #d29f22; }
+::-webkit-scrollbar-thumb:hover { background: #f0ede8; }
 
-::selection {
-  background: #6E1F28;
-  color: #F5F3EF;
-}
+::selection { background: #d29f22; color: #19171b; }
 
 .font-display {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
-.section-padding {
-  padding: 6rem 1.5rem;
-}
+.section-padding { padding: 6rem 1.5rem; }
 
 @media (min-width: 768px) {
-  .section-padding {
-    padding: 8rem 3rem;
-  }
+  .section-padding { padding: 8rem 3rem; }
 }
-
 @media (min-width: 1280px) {
-  .section-padding {
-    padding: 10rem 5rem;
-  }
+  .section-padding { padding: 10rem 5rem; }
 }
 
+/* Marquee animation */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+/* Text mask reveal */
 .text-reveal {
   display: inline-block;
   clip-path: inset(100% 0 0 0);
   transform: translateY(0.25em);
-  transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: clip-path, transform;
 }
-
 .text-reveal.is-visible {
   clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
 
+/* Neo-brutalist hard shadow */
+.hard-shadow {
+  box-shadow: 4px 4px 0px #d29f22;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.hard-shadow:hover {
+  box-shadow: 2px 2px 0px #d29f22;
+  transform: translate(2px, 2px);
+}
+
+/* Inverted fill hover (slide from left) */
+.fill-hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.fill-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #d29f22;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: -1;
+}
+.fill-hover:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .text-reveal {
-    clip-path: none;
-    transform: none;
-    transition: none;
-  }
+  .text-reveal { clip-path: none; transform: none; transition: none; }
+  .marquee-track { animation: none; }
 }

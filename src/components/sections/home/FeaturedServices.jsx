@@ -1,59 +1,86 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
 import Button from '../../ui/Button'
 
-const base = '/kardra'
 const WA = `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
 
 export default function FeaturedServices() {
   const { t } = useTranslation()
   const ref = useRef()
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-60px' })
   const items = t('home.featuredServices.items', { returnObjects: true })
 
   return (
-    <section ref={ref} className="section-padding bg-[#0A0A0A] border-t border-[#111]">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="bg-[#252628] relative overflow-hidden">
+
+      {/* Decorative large "02" background */}
+      <div className="absolute right-0 top-0 select-none pointer-events-none overflow-hidden">
+        <span className="font-display text-[20vw] text-[#2e2c30]/40 leading-none">02</span>
+      </div>
+
+      <div className="relative px-6 md:px-12 lg:px-20 py-20 md:py-28">
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-16"
         >
-          <span className="inline-block text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#81766C] border border-[#81766C]/40 px-3 py-1 mb-6">
-            SERVICIOS
-          </span>
-          <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] max-w-3xl">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-mono text-[#d29f22] text-xs tracking-widest">05</span>
+            <div className="flex-1 h-px bg-[#2e2c30]" />
+            <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">SERVICIOS</span>
+          </div>
+          <h2 className="font-display text-[clamp(2rem,4.5vw,5.5rem)] max-w-3xl leading-[0.9]">
             {t('home.featuredServices.title')}
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-[#1a1a1a] mb-10">
+        {/* 2×2 grid — editorial */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[#2e2c30]">
           {items.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.12, duration: 0.55 }}
-              className="p-6 md:p-10 border-b border-[#1a1a1a] lg:border-r lg:[&:nth-child(2n)]:border-r-0 lg:[&:nth-last-child(-n+2)]:border-b-0 group hover:bg-[#0d0d0d] transition-colors duration-300 flex gap-4 sm:gap-6 items-start"
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1 + i * 0.1, duration: 0.65 }}
+              className="group p-8 md:p-10 border-b border-r border-[#2e2c30] last:border-r-0 md:[&:nth-child(2n)]:border-r-0 md:[&:nth-last-child(-n+2)]:border-b-0 hover:bg-[#2e2c30]/40 transition-colors duration-300 relative overflow-hidden"
             >
-              <div className="flex-shrink-0 w-8 h-8 border border-[#6E1F28]/40 flex items-center justify-center mt-1">
-                <span className="font-display text-sm text-[#6E1F28]">0{i + 1}</span>
+              {/* Number */}
+              <div className="font-display text-[5rem] text-[#2e2c30] group-hover:text-[#d29f22]/20 transition-colors duration-400 leading-none select-none mb-4">
+                {String(i + 1).padStart(2, '0')}
               </div>
-              <div>
-                <h4 className="font-display text-xl mb-3 text-[#D1CBC2] group-hover:text-[#F5F3EF] transition-colors">{item.name}</h4>
-                <p className="text-[#555656] text-sm leading-relaxed">{item.text}</p>
-              </div>
+
+              {/* Gold accent line */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={inView ? { scaleX: 1 } : {}}
+                transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
+                style={{ originX: 0 }}
+                className="w-8 h-[2px] bg-[#d29f22] mb-5"
+              />
+
+              <h4 className="font-display text-[clamp(1.2rem,2vw,1.8rem)] text-[#f0ede8] mb-3 leading-[0.95] group-hover:text-[#d29f22] transition-colors duration-300">
+                {item.name}
+              </h4>
+              <p className="text-[#6a6868] text-sm leading-relaxed">
+                {item.text}
+              </p>
+
+              {/* Bottom fill on hover */}
+              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d29f22] group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
         </div>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.6 }}
+          className="mt-12"
         >
           <Button variant="outline" href={WA} target="_blank">
             {t('home.featuredServices.cta')}
