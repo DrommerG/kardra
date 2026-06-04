@@ -6,7 +6,7 @@ export default function SectionLabel({ children, className = '', color = 'gold' 
     cream: 'text-[#f0ede8] border-[#f0ede8]/40',
   }
   return (
-    <span className={`inline-flex items-center gap-2 text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase border px-3 py-1 mb-6 ${colors[color] ?? colors.gold} ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.35em] uppercase border px-3.5 py-1.5 mb-8 ${colors[color] ?? colors.gold} ${className}`}>
       <span className="w-1.5 h-1.5 bg-current" />
       {children}
     </span>

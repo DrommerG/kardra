@@ -9,7 +9,6 @@ const KubeScene = lazy(() => import('../../3d/KubeScene'))
 const base = '/kardra'
 const WA = `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
 
-/* Reveal a line of text from below (mask effect) */
 function RevealLine({ children, delay = 0, className = '' }) {
   return (
     <div className={`overflow-hidden ${className}`}>
@@ -31,7 +30,7 @@ export default function Hero() {
   useEffect(() => {
     const onMove = (e) => {
       mouse.current = {
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        x: (e.clientX / window.innerWidth  - 0.5) * 2,
         y: (e.clientY / window.innerHeight - 0.5) * 2,
       }
     }
@@ -40,19 +39,19 @@ export default function Hero() {
   }, [])
 
   const words = t('home.hero.title').split(' ')
-  const line1 = words.slice(0, 1)          // AUTOMATIZA
-  const line2 = words.slice(1, 5)          // LO QUE TE HACE
-  const line3 = words.slice(5)             // PERDER TIEMPO
+  const line1 = words.slice(0, 1)   // AUTOMATIZA
+  const line2 = words.slice(1, 5)   // LO QUE TE HACE
+  const line3 = words.slice(5)      // PERDER TIEMPO
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#19171b]">
 
       {/* Left gold vertical accent */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#d29f22]" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#d29f22] z-10" />
 
-      {/* Subtle grid */}
+      {/* Subtle background grid */}
       <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        className="absolute inset-0 opacity-[0.022] pointer-events-none"
         style={{
           backgroundImage: 'linear-gradient(#f0ede8 1px, transparent 1px), linear-gradient(90deg, #f0ede8 1px, transparent 1px)',
           backgroundSize: '80px 80px',
@@ -64,84 +63,80 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.2, duration: 0.6 }}
-        className="absolute top-8 right-6 md:right-12 lg:right-20 font-mono text-[10px] text-[#6a6868] tracking-[0.3em] uppercase select-none"
+        className="absolute top-8 right-6 md:right-12 lg:right-20 font-mono text-[10px] text-[#6a6868] tracking-[0.3em] uppercase select-none z-10"
       >
         00 / INICIO
       </motion.div>
 
-      {/* ── TOP: MASSIVE TITLE ──────────────────────────────── */}
-      <div className="flex-1 flex flex-col justify-end pt-24 pb-0 px-6 md:px-12 lg:px-20">
+      {/* Main 2-column grid — fills viewport */}
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[55fr_45fr] min-h-screen">
 
-        {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-3 mb-8"
-        >
-          <span className="w-8 h-[2px] bg-[#d29f22]" />
-          <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22]">
-            KARDRA — AUTOMATIZACIÓN
-          </span>
-        </motion.div>
+        {/* ── LEFT: Label + Title + Subtitle + CTAs ── */}
+        <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 pt-28 pb-16 lg:pt-0 lg:pb-0">
 
-        {/* MASSIVE 3-line title */}
-        <div className="font-display text-[clamp(3.8rem,10vw,13rem)] leading-[0.88] mb-0">
-          <RevealLine delay={0.15}>
-            <span className="block">
-              {line1.join(' ')}
+          {/* Label */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-3 mb-10"
+          >
+            <span className="w-10 h-[2px] bg-[#d29f22]" />
+            <span className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.35em] uppercase text-[#d29f22]">
+              KARDRA — AUTOMATIZACIÓN
             </span>
-          </RevealLine>
-          <RevealLine delay={0.28} className="ml-[6%] md:ml-[12%]">
-            <span className="block">
-              {line2.join(' ')}
-            </span>
-          </RevealLine>
-          <RevealLine delay={0.41} className="ml-[18%] md:ml-[28%]">
-            <span className="block">
-              {line3.slice(0, -1).join(' ')}{' '}
-              <span className="text-[#d29f22]">{line3[line3.length - 1]}</span>
-            </span>
-          </RevealLine>
-        </div>
+          </motion.div>
 
-        {/* Gold horizontal divider */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          style={{ originX: 0 }}
-          className="mt-10 h-[2px] bg-gradient-to-r from-[#d29f22] via-[#d29f22]/60 to-transparent"
-        />
-      </div>
+          {/* Massive title — Bebas Neue, 3 lines */}
+          <div className="font-display text-[clamp(4rem,8vw,12rem)] leading-[0.92] mb-10">
+            <RevealLine delay={0.15}>
+              <span className="block">{line1.join(' ')}</span>
+            </RevealLine>
+            <RevealLine delay={0.28} className="ml-[4%]">
+              <span className="block">{line2.join(' ')}</span>
+            </RevealLine>
+            <RevealLine delay={0.41} className="ml-[10%]">
+              <span className="block">
+                {line3.slice(0, -1).join(' ')}{' '}
+                <span className="text-[#d29f22]">{line3[line3.length - 1]}</span>
+              </span>
+            </RevealLine>
+          </div>
 
-      {/* ── BOTTOM: subtitle + CTA + 3D ──────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 px-6 md:px-12 lg:px-20 pt-10 pb-16 gap-8 lg:gap-0">
+          {/* Gold divider */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.7, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            style={{ originX: 0 }}
+            className="h-[2px] bg-gradient-to-r from-[#d29f22] via-[#d29f22]/50 to-transparent mb-10"
+          />
 
-        {/* Left: copy + CTAs */}
-        <div className="flex flex-col justify-end">
+          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.7 }}
-            className="text-[#6a6868] text-base md:text-lg leading-relaxed mb-3 max-w-lg"
+            className="text-[#6a6868] text-base md:text-lg leading-relaxed mb-3 max-w-md"
           >
             {t('home.hero.subtitle')}
           </motion.p>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.15, duration: 0.6 }}
-            className="text-[#f0ede8]/40 text-sm mb-10"
+            className="text-[#f0ede8]/35 text-sm mb-10 tracking-wide"
           >
             {t('home.hero.support')}
           </motion.p>
 
+          {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3"
+            className="flex flex-col sm:flex-row gap-3 flex-wrap"
           >
             <Link to={`${base}/products`} className="w-full sm:w-auto">
               <Button variant="primary" className="w-full sm:w-auto justify-center">
@@ -159,29 +154,37 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: 3D cube — elevated to overlap gold line */}
+        {/* ── RIGHT: 3D Cube ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1.4 }}
-          className="relative h-[260px] md:h-[360px] lg:h-[440px] lg:-mt-24"
+          transition={{ delay: 0.4, duration: 1.6 }}
+          className="relative hidden lg:flex items-center justify-center border-l border-[#2e2c30]"
         >
-          <Suspense fallback={<div className="w-full h-full" />}>
-            <KubeScene mouse={mouse} />
-          </Suspense>
+          {/* Subtle corner marks */}
+          <div className="absolute top-8 left-8 w-5 h-5 border-l-2 border-t-2 border-[#d29f22]/30" />
+          <div className="absolute top-8 right-8 w-5 h-5 border-r-2 border-t-2 border-[#d29f22]/30" />
+          <div className="absolute bottom-8 left-8 w-5 h-5 border-l-2 border-b-2 border-[#d29f22]/30" />
+          <div className="absolute bottom-8 right-8 w-5 h-5 border-r-2 border-b-2 border-[#d29f22]/30" />
+
+          <div className="w-full h-[480px] xl:h-[560px]">
+            <Suspense fallback={<div className="w-full h-full" />}>
+              <KubeScene mouse={mouse} />
+            </Suspense>
+          </div>
 
           {/* Floating keyword labels */}
           {[
-            { text: 'SISTEMA', pos: 'top-4 right-8',   delay: 1.6 },
-            { text: 'DATOS',   pos: 'bottom-12 left-6', delay: 1.8 },
-            { text: 'FLUJO',   pos: 'top-1/2 right-2',  delay: 2.0 },
+            { text: 'SISTEMA', pos: 'top-16 right-12',   delay: 1.6 },
+            { text: 'DATOS',   pos: 'bottom-20 left-12', delay: 1.8 },
+            { text: 'FLUJO',   pos: 'top-1/2 right-6',   delay: 2.0 },
           ].map(({ text, pos, delay }) => (
             <motion.span
               key={text}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay, duration: 0.6 }}
-              className={`absolute ${pos} text-[9px] font-['Barlow'] font-600 tracking-[0.3em] text-[#d29f22]/50 uppercase pointer-events-none`}
+              transition={{ delay, duration: 0.7 }}
+              className={`absolute ${pos} text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.35em] text-[#d29f22]/50 uppercase pointer-events-none`}
             >
               {text}
             </motion.span>
@@ -194,14 +197,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.4, duration: 0.6 }}
-        className="absolute bottom-6 left-6 md:left-12 lg:left-20 flex items-center gap-3"
+        className="absolute bottom-6 left-8 md:left-14 lg:left-20 flex items-center gap-3"
       >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          animate={{ y: [0, 7, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
           className="w-[2px] h-8 bg-gradient-to-b from-[#d29f22] to-transparent"
         />
-        <span className="text-[9px] font-['Barlow'] tracking-[0.3em] uppercase text-[#6a6868]">SCROLL</span>
+        <span className="text-[9px] font-['Space_Grotesk'] tracking-[0.35em] uppercase text-[#6a6868]">SCROLL</span>
       </motion.div>
     </section>
   )

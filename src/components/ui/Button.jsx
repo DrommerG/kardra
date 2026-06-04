@@ -9,12 +9,12 @@ const variants = {
 }
 
 export default function Button({ children, variant = 'primary', href, onClick, className = '', target }) {
-  const base = `inline-flex items-center gap-2.5 px-7 py-3.5 font-['Barlow'] font-700 text-[11px] tracking-[0.2em] uppercase transition-all duration-250 cursor-pointer select-none ${variants[variant]} ${className}`
+  const base = `inline-flex items-center gap-3 px-8 py-4 font-['Space_Grotesk'] font-600 text-[12px] tracking-[0.22em] uppercase transition-all duration-200 cursor-pointer select-none ${variants[variant]} ${className}`
 
   const content = (
     <motion.span
       whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.98 }}
+      whileTap={{ scale: 0.97 }}
       className={base}
     >
       {children}

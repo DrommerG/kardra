@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
@@ -19,7 +19,7 @@ function ServiceCard({ item, index }) {
       className="border border-[#2e2c30] p-8 md:p-12 lg:p-16 group hover:border-[#d29f22]/30 transition-colors duration-400 relative overflow-hidden bg-[#19171b]"
     >
       {/* CUSTOM badge */}
-      <div className="absolute top-6 right-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] text-[#6a6868] border border-[#6a6868]/40 px-2.5 py-1">
+      <div className="absolute top-6 right-6 text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.3em] text-[#6a6868] border border-[#6a6868]/40 px-2.5 py-1">
         {item.label}
       </div>
       <span className="absolute bottom-0 left-0 h-[2px] bg-[#d29f22] w-0 group-hover:w-full transition-all duration-600 ease-out" />
@@ -38,7 +38,7 @@ function ServiceCard({ item, index }) {
         <div className="lg:flex-1">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-6 h-[2px] bg-[#d29f22]" />
-            <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.25em] uppercase text-[#6a6868]">BENEFICIOS</p>
+            <p className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.25em] uppercase text-[#6a6868]">BENEFICIOS</p>
           </div>
           <ul className="flex flex-col gap-0 border-t border-[#2e2c30] mb-10">
             {item.benefits.map((b, i) => (
@@ -104,14 +104,14 @@ export default function Services() {
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="w-6 h-[2px] bg-[#d29f22]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22]">RECUPERA TIEMPO</span>
+              <span className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22]">RECUPERA TIEMPO</span>
             </div>
             <h2 className="font-display text-[clamp(2.5rem,5vw,6rem)] mb-6 leading-[0.9]">
               {t('services.timeBlock.title')}
             </h2>
             <p className="text-[#6a6868] text-lg mb-8 leading-relaxed">{t('services.timeBlock.text')}</p>
             <div className="border-l-2 border-[#d29f22] pl-5">
-              <p className="text-[#f0ede8] text-base leading-relaxed font-['Barlow'] font-600">
+              <p className="text-[#f0ede8] text-base leading-relaxed font-['Space_Grotesk'] font-600">
                 {t('services.timeBlock.closing')}
               </p>
             </div>

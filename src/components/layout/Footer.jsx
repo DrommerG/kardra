@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageToggle from '../ui/LanguageToggle'
 import { BASE as base, WA_URL as WA, EMAIL_URL as EMAIL } from '../../config/constants'
@@ -34,7 +34,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <div>
-          <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22] mb-6 flex items-center gap-2">
+          <p className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22] mb-6 flex items-center gap-2">
             <span className="w-4 h-[2px] bg-[#d29f22]" />
             {t('footer.nav_title')}
           </p>
@@ -54,7 +54,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22] mb-6 flex items-center gap-2">
+          <p className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22] mb-6 flex items-center gap-2">
             <span className="w-4 h-[2px] bg-[#d29f22]" />
             {t('footer.contact_title')}
           </p>
@@ -91,10 +91,10 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="px-6 md:px-12 lg:px-20 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <span className="text-[#2e2c30] text-[10px] font-['Barlow'] tracking-[0.25em] uppercase">
+        <span className="text-[#2e2c30] text-[10px] font-['Space_Grotesk'] tracking-[0.25em] uppercase">
           © {year} KARDRA — {t('footer.rights')}
         </span>
-        <span className="text-[#2e2c30] text-[10px] font-['Barlow'] tracking-[0.25em] uppercase">
+        <span className="text-[#2e2c30] text-[10px] font-['Space_Grotesk'] tracking-[0.25em] uppercase">
           N8N · MAKE · AUTOMATION
         </span>
       </div>

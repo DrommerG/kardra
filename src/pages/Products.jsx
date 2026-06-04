@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
@@ -19,7 +19,7 @@ function ProductCard({ item, index }) {
       className="border border-[#2e2c30] p-8 md:p-12 lg:p-16 group hover:border-[#d29f22]/30 transition-colors duration-400 relative overflow-hidden bg-[#19171b]"
     >
       {/* PRODUCTO badge */}
-      <div className="absolute top-6 left-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] text-[#d29f22] border border-[#d29f22]/40 px-2 py-0.5">
+      <div className="absolute top-6 left-6 text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.3em] text-[#d29f22] border border-[#d29f22]/40 px-2 py-0.5">
         PRODUCTO
       </div>
 
@@ -45,7 +45,7 @@ function ProductCard({ item, index }) {
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-6 h-[2px] bg-[#d29f22]" />
-              <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.25em] uppercase text-[#6a6868]">
+              <p className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.25em] uppercase text-[#6a6868]">
                 BENEFICIOS
               </p>
             </div>

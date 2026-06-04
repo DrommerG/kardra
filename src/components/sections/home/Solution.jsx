@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
@@ -42,7 +42,7 @@ export default function Solution() {
                 className="border border-[#2e2c30] bg-[#19171b]/80 backdrop-blur-sm p-4 text-center"
               >
                 <div className="font-display text-3xl text-[#d29f22] mb-1">{symbol}</div>
-                <div className="text-[9px] font-['Barlow'] font-600 tracking-[0.2em] text-[#6a6868] uppercase">{label}</div>
+                <div className="text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.2em] text-[#6a6868] uppercase">{label}</div>
               </motion.div>
             ))}
           </div>
@@ -73,7 +73,7 @@ export default function Solution() {
             {/* Accent blockquote */}
             <div className="flex items-start gap-4 mt-8">
               <div className="w-1 h-full min-h-[3rem] bg-[#d29f22] flex-shrink-0" />
-              <p className="text-[#f0ede8] text-base font-['Barlow'] font-600 leading-relaxed">
+              <p className="text-[#f0ede8] text-base font-['Space_Grotesk'] font-600 leading-relaxed">
                 {t('home.solution.support')}
               </p>
             </div>

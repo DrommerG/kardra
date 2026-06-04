@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -44,7 +44,7 @@ export default function About() {
               className="flex items-center gap-4 mb-10"
             >
               <div className="w-6 h-[2px] bg-[#d29f22]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-3 py-1 inline-flex items-center gap-2">
+              <span className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-3 py-1 inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[#d29f22]" />
                 NOSOTROS
               </span>

@@ -61,7 +61,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop nav — each item is its own block */}
+        {/* Desktop nav */}
         <nav className="hidden lg:flex flex-1 items-stretch">
           {links.map(({ key, to }) => {
             const active = isActive(to)
@@ -69,7 +69,7 @@ export default function Header() {
               <Link
                 key={key}
                 to={to}
-                className={`relative flex items-center gap-2 px-8 xl:px-11 border-r border-[#2e2c30] text-[11px] font-['Barlow'] font-600 tracking-[0.25em] uppercase transition-all duration-200 ${
+                className={`relative flex items-center gap-2.5 px-7 xl:px-10 border-r border-[#2e2c30] text-[12px] font-['Space_Grotesk'] font-600 tracking-[0.22em] uppercase transition-all duration-200 ${
                   active
                     ? 'text-[#d29f22] bg-[#252628]'
                     : 'text-[#6a6868] hover:text-[#f0ede8] hover:bg-[#252628]/70'
@@ -80,8 +80,8 @@ export default function Header() {
               </Link>
             )
           })}
-          {/* Language toggle — sits right after nav links, inside the nav area */}
-          <div className="hidden lg:flex items-center border-r border-[#2e2c30] px-10 h-full ml-auto">
+          {/* Language toggle inside nav */}
+          <div className="hidden lg:flex items-center border-r border-[#2e2c30] px-8 h-full ml-auto">
             <LanguageToggle />
           </div>
         </nav>
@@ -91,35 +91,26 @@ export default function Header() {
 
           <Link
             to={`${base}/contact`}
-            className={`hidden lg:flex items-center h-full px-10 border-l border-[#2e2c30] text-[11px] font-['Barlow'] font-600 tracking-[0.25em] uppercase transition-all duration-200 ${
+            className={`hidden lg:flex items-center h-full px-10 border-l border-[#2e2c30] text-[12px] font-['Space_Grotesk'] font-600 tracking-[0.22em] uppercase transition-all duration-200 ${
               isActive(`${base}/contact`) ? 'bg-[#d29f22] text-[#19171b]' : 'text-[#6a6868] hover:text-[#d29f22] hover:bg-[#252628]'
             }`}
           >
             {t('nav.contact')}
           </Link>
 
-          <div className="flex items-center border-l border-[#2e2c30] px-6 h-full gap-4 lg:hidden">
+          {/* Mobile: lang toggle + hamburger */}
+          <div className="flex items-center border-l border-[#2e2c30] px-6 h-full gap-5 lg:hidden">
             <LanguageToggle />
             <button
               className="flex flex-col gap-1.5 p-1"
               onClick={() => setOpen(!open)}
               aria-label="Menu"
             >
-              <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
-              <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
-              <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+              <span className={`block w-6 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`block w-6 h-[2px] bg-[#f0ede8] transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
+              <span className={`block w-6 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
             </button>
           </div>
-
-          <button
-            className="hidden lg:flex flex-col gap-1.5 p-1 border-l border-[#2e2c30] px-6 h-full items-center justify-center lg:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Menu"
-          >
-            <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
-            <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-          </button>
         </div>
       </div>
 
@@ -137,7 +128,7 @@ export default function Header() {
               <Link
                 key={key}
                 to={to}
-                className={`flex items-center justify-between px-6 py-4 border-b border-[#2e2c30] text-[11px] font-['Barlow'] font-600 tracking-[0.2em] uppercase transition-colors ${
+                className={`flex items-center justify-between px-8 py-5 border-b border-[#2e2c30] text-[12px] font-['Space_Grotesk'] font-600 tracking-[0.22em] uppercase transition-colors ${
                   isActive(to) ? 'text-[#d29f22] bg-[#252628]' : 'text-[#6a6868]'
                 }`}
               >

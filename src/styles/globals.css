@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --kd-black: #19171b;
-  --kd-gold:  #d29f22;
-  --kd-gray:  #252628;
-  --kd-red:   #5d0018;
-  --kd-cream: #f0ede8;
-  --kd-muted: #6a6868;
+  --kd-black:  #19171b;
+  --kd-gold:   #d29f22;
+  --kd-gray:   #252628;
+  --kd-red:    #5d0018;
+  --kd-cream:  #f0ede8;
+  --kd-muted:  #6a6868;
   --kd-border: #2e2c30;
 }
 
@@ -20,11 +20,12 @@ html {
 body {
   background-color: #19171b;
   color: #f0ede8;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;
-  line-height: 1.85;
-  overflow-x: hidden;
   font-size: 17px;
+  line-height: 1.8;
+  letter-spacing: 0.012em;
+  overflow-x: hidden;
 }
 
 /* Grain noise texture over entire bg */
@@ -34,19 +35,19 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.06;
+  opacity: 0.055;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
 }
 
-/* Subtle diagonal crosshatch across entire background */
+/* Subtle diagonal crosshatch */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9998;
-  opacity: 0.018;
+  opacity: 0.016;
   background-image: repeating-linear-gradient(
     -45deg,
     #f0ede8 0px,
@@ -57,11 +58,11 @@ body::after {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  line-height: 0.92;
+  line-height: 0.95;
 }
 
 ::-webkit-scrollbar { width: 3px; }
@@ -72,19 +73,20 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: #d29f22; color: #19171b; }
 
 .font-display {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.03em;
 }
 
-.section-padding { padding: 8rem 1.5rem; }
+/* Section spacing — generous but not excessive */
+.section-padding { padding: 5rem 1.5rem; }
 
 @media (min-width: 768px) {
-  .section-padding { padding: 12rem 4rem; }
+  .section-padding { padding: 7rem 4rem; }
 }
 @media (min-width: 1280px) {
-  .section-padding { padding: 16rem 6rem; }
+  .section-padding { padding: 10rem 6rem; }
 }
 
 /* Marquee animation */
@@ -95,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 32s linear infinite;
+  animation: marquee-scroll 36s linear infinite;
 }
 
 /* Text mask reveal */
@@ -114,12 +116,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Neo-brutalist hard shadow */
 .hard-shadow {
-  box-shadow: 4px 4px 0px #d29f22;
+  box-shadow: 5px 5px 0px #d29f22;
   transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 .hard-shadow:hover {
   box-shadow: 2px 2px 0px #d29f22;
-  transform: translate(2px, 2px);
+  transform: translate(3px, 3px);
 }
 
 /* Inverted fill hover (slide from left) */
@@ -135,12 +137,22 @@ h1, h2, h3, h4, h5, h6 {
   background: #d29f22;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
   z-index: -1;
 }
 .fill-hover:hover::before {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+/* Brutalist section accent line */
+.section-accent::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #d29f22;
+  margin-bottom: 1.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

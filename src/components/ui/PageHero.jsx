@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 export default function PageHero({
@@ -46,7 +46,7 @@ export default function PageHero({
             {sectionNum && <span className="font-mono text-xs tracking-widest" style={{ color: labelColor }}>{sectionNum}</span>}
             {sectionNum && <div className="w-12 h-px bg-[#2e2c30]" />}
             <span
-              className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase border px-3 py-1 inline-flex items-center gap-2"
+              className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase border px-3 py-1 inline-flex items-center gap-2"
               style={{ color: labelColor, borderColor: `${labelColor}44` }}
             >
               <span className="w-1.5 h-1.5 bg-current" />

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import PageHero from '../components/ui/PageHero'

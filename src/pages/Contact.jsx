@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+﻿import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { WA_URL, EMAIL_URL, EMAIL_ADDRESS } from '../config/constants'
@@ -38,7 +38,7 @@ export default function Contact() {
               className="flex items-center gap-4 mb-10"
             >
               <div className="w-6 h-[2px] bg-[#d29f22]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-3 py-1 inline-flex items-center gap-2">
+              <span className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-3 py-1 inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[#d29f22]" />
                 CONTACTO
               </span>
@@ -81,8 +81,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.2em] uppercase text-[#6a6868] mb-0.5">WhatsApp</p>
-                  <p className="text-[#f0ede8] text-sm font-['Barlow'] font-600">+593 98 418 7556</p>
+                  <p className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.2em] uppercase text-[#6a6868] mb-0.5">WhatsApp</p>
+                  <p className="text-[#f0ede8] text-sm font-['Space_Grotesk'] font-600">+593 98 418 7556</p>
                 </div>
                 <span className="ml-auto text-[#d29f22] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
@@ -97,8 +97,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[10px] font-['Barlow'] font-600 tracking-[0.2em] uppercase text-[#6a6868] mb-0.5">Email</p>
-                  <p className="text-[#f0ede8] text-sm font-['Barlow'] font-600">daesgaar@gmail.com</p>
+                  <p className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.2em] uppercase text-[#6a6868] mb-0.5">Email</p>
+                  <p className="text-[#f0ede8] text-sm font-['Space_Grotesk'] font-600">daesgaar@gmail.com</p>
                 </div>
                 <span className="ml-auto text-[#d29f22] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
@@ -116,7 +116,7 @@ export default function Contact() {
             {/* Form header */}
             <div className="flex items-center gap-3 mb-2">
               <div className="w-6 h-[2px] bg-[#d29f22]" />
-              <span className="text-[10px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6a6868]">
+              <span className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#6a6868]">
                 FORMULARIO
               </span>
             </div>
@@ -126,7 +126,7 @@ export default function Contact() {
               { key: 'company', type: 'text' },
             ].map(({ key, type }) => (
               <div key={key} className="flex flex-col gap-2">
-                <label className="text-[10px] font-['Barlow'] font-600 tracking-[0.2em] uppercase text-[#6a6868]">
+                <label className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.2em] uppercase text-[#6a6868]">
                   {t(`contact.form.${key}`)}
                 </label>
                 <input
@@ -139,7 +139,7 @@ export default function Contact() {
             ))}
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] font-['Barlow'] font-600 tracking-[0.2em] uppercase text-[#6a6868]">
+              <label className="text-[10px] font-['Space_Grotesk'] font-600 tracking-[0.2em] uppercase text-[#6a6868]">
                 {t('contact.form.message')}
               </label>
               <textarea
@@ -152,7 +152,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="bg-[#5d0018] text-[#f0ede8] px-8 py-4 font-['Barlow'] font-700 text-[11px] tracking-[0.2em] uppercase hover:bg-[#d29f22] hover:text-[#19171b] transition-all duration-250 self-start border-2 border-[#5d0018] hover:border-[#d29f22]"
+              className="bg-[#5d0018] text-[#f0ede8] px-8 py-4 font-['Space_Grotesk'] font-700 text-[11px] tracking-[0.2em] uppercase hover:bg-[#d29f22] hover:text-[#19171b] transition-all duration-250 self-start border-2 border-[#5d0018] hover:border-[#d29f22]"
             >
               {t('contact.form.send')}
             </button>

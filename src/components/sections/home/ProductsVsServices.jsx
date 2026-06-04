@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -50,7 +50,7 @@ export default function ProductsVsServices() {
             className="border-2 border-[#d29f22] p-8 md:p-12 lg:p-14 relative group"
             style={{ boxShadow: '6px 6px 0px #d29f22' }}
           >
-            <div className="absolute top-6 left-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-2 py-0.5">
+            <div className="absolute top-6 left-6 text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-2 py-0.5">
               PRODUCTOS · LISTOS PARA USAR
             </div>
 
@@ -82,7 +82,7 @@ export default function ProductsVsServices() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="border border-[#2e2c30] p-8 md:p-12 lg:p-14 relative group hover:border-[#d29f22]/30 transition-colors duration-400 lg:-ml-[2px] lg:mt-8"
           >
-            <div className="absolute top-6 left-6 text-[9px] font-['Barlow'] font-600 tracking-[0.3em] uppercase text-[#6a6868] border border-[#6a6868]/40 px-2 py-0.5">
+            <div className="absolute top-6 left-6 text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#6a6868] border border-[#6a6868]/40 px-2 py-0.5">
               SERVICIOS · A MEDIDA
             </div>
 
