@@ -42,6 +42,37 @@ export const imagePrompts = {
     size: '1792x1024',
     prompt: `A minimalist dark workspace, abstract and nearly empty: a long matte desk, a single pendant light casting a warm pool of illumination, a dark textured wall in the background. No people. Architectural, quiet, industrial but refined. Suitable as a wide background for an About section. ${BASE_STYLE}`,
   },
+
+  cube_face_0: {
+    filename: 'cube_face_0.png',
+    size: '1024x1024',
+    prompt: `Abstract graphic design: five horizontal bars of varying widths arranged vertically, like a KPI dashboard, on a very dark near-black background (#19171b). Bars are filled with warm gold (#d29f22), sizes 90%, 72%, 95%, 63%, 81% of width. A thin gold rectangular border frames the entire composition. Stark, minimal, brutalist graphic art. No text, no gradients, pure geometric shapes. Square format. High contrast.`,
+  },
+  cube_face_1: {
+    filename: 'cube_face_1.png',
+    size: '1024x1024',
+    prompt: `Abstract network constellation: small gold dots connected by thin gold lines forming a geometric network diagram on an almost black background. Some dots are larger and brighter (nodes), connected to smaller satellite dots. Lines are very thin and slightly translucent. Gold (#d29f22) on near-black (#19171b). Minimal, cold, brutalist graphic style. No text. Square format.`,
+  },
+  cube_face_2: {
+    filename: 'cube_face_2.png',
+    size: '1024x1024',
+    prompt: `Abstract workflow diagram: three stacked rectangular frames on a very dark background, labeled INPUT (top), KARDRA (center, with gold fill highlight), OUTPUT (bottom), connected by vertical arrows. Center frame glows very slightly gold. All borders in gold (#d29f22). Background #19171b. Brutalist, stark, minimal design. No decorative elements. Square format. High contrast.`,
+  },
+  cube_face_3: {
+    filename: 'cube_face_3.png',
+    size: '1024x1024',
+    prompt: `Abstract circuit board close-up: thin gold traces run horizontally and vertically across a near-black background, meeting at gold circular nodes of varying sizes. The traces form an asymmetric grid-like pattern. Some nodes glow slightly. Color palette: near-black (#19171b) background, gold (#d29f22) traces and nodes. Macro detail, clean, flat design aesthetic. No text. Square format.`,
+  },
+  cube_face_4: {
+    filename: 'cube_face_4.png',
+    size: '1024x1024',
+    prompt: `Abstract geometric diamond: concentric diamond shapes (rotated squares) drawn with thin gold lines on a very dark background, creating a nested optical illusion. A small solid gold diamond at the center. Faint diagonal striping pattern across the background at very low opacity. Color: near-black (#19171b), gold (#d29f22). Minimal, mathematical, brutalist. No text. Square format.`,
+  },
+  cube_face_5: {
+    filename: 'cube_face_5.png',
+    size: '1024x1024',
+    prompt: `Abstract data table: six horizontal rows on a dark background, each row separated by a thin line. Each row shows a small gold square on the left and a varying-length dark bar in the center. One highlighted row (third) has a slightly lighter background and gold-colored elements. Clean, minimal, spreadsheet-like aesthetic. Color: near-black (#19171b), gold (#d29f22) accents. No text. Square format. Brutalist.`,
+  },
 };
 
 export const imagePromptList = Object.entries(imagePrompts).map(([key, value]) => ({

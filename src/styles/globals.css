@@ -22,16 +22,46 @@ body {
   color: #f0ede8;
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.85;
   overflow-x: hidden;
+  font-size: 17px;
+}
+
+/* Grain noise texture over entire bg */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Subtle diagonal crosshatch across entire background */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.018;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #f0ede8 0px,
+    #f0ede8 1px,
+    transparent 1px,
+    transparent 60px
+  );
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  line-height: 0.9;
+  line-height: 0.92;
 }
 
 ::-webkit-scrollbar { width: 3px; }
@@ -48,13 +78,13 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.03em;
 }
 
-.section-padding { padding: 6rem 1.5rem; }
+.section-padding { padding: 8rem 1.5rem; }
 
 @media (min-width: 768px) {
-  .section-padding { padding: 8rem 3rem; }
+  .section-padding { padding: 12rem 4rem; }
 }
 @media (min-width: 1280px) {
-  .section-padding { padding: 10rem 5rem; }
+  .section-padding { padding: 16rem 6rem; }
 }
 
 /* Marquee animation */

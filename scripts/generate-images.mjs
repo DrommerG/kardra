@@ -32,10 +32,10 @@ const promptsModuleUrl = pathToFileURL(
 ).href;
 
 const OPENAI_ENDPOINT = 'https://api.openai.com/v1/images/generations';
-const MODEL = 'dall-e-3';
+const MODEL = 'gpt-image-1';
 
 function parseArgs(argv) {
-  const args = { only: null, force: false, quality: 'hd', style: 'natural' };
+  const args = { only: null, force: false, quality: 'high', style: 'natural' };
   for (const raw of argv.slice(2)) {
     if (raw === '--force') {
       args.force = true;
@@ -90,7 +90,7 @@ async function fileExists(path) {
   }
 }
 
-async function generateImage({ apiKey, prompt, size, quality, style }) {
+async function generateImage({ apiKey, prompt, size, quality }) {
   const response = await fetch(OPENAI_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -102,9 +102,7 @@ async function generateImage({ apiKey, prompt, size, quality, style }) {
       prompt,
       size,
       quality,
-      style,
       n: 1,
-      response_format: 'b64_json',
     }),
   });
 
@@ -115,10 +113,18 @@ async function generateImage({ apiKey, prompt, size, quality, style }) {
 
   const payload = await response.json();
   const item = payload?.data?.[0];
-  if (!item?.b64_json) {
-    throw new Error('OpenAI response did not include b64_json image data.');
+
+  // Support both b64_json and URL formats
+  if (item?.b64_json) {
+    return Buffer.from(item.b64_json, 'base64');
   }
-  return Buffer.from(item.b64_json, 'base64');
+  if (item?.url) {
+    const imgResponse = await fetch(item.url);
+    if (!imgResponse.ok) throw new Error(`Failed to download image from URL: ${imgResponse.status}`);
+    const arrayBuffer = await imgResponse.arrayBuffer();
+    return Buffer.from(arrayBuffer);
+  }
+  throw new Error('OpenAI response did not include image data (neither b64_json nor url).');
 }
 
 async function main() {

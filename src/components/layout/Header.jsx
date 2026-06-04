@@ -47,29 +47,29 @@ export default function Header() {
         className="absolute top-0 left-0 right-0 h-[2px] bg-[#d29f22] z-10"
       />
 
-      <div className="flex items-stretch h-[72px] border-b border-[#2e2c30]">
+      <div className="flex items-stretch h-[108px] border-b border-[#2e2c30]">
 
         {/* Logo block */}
         <Link
           to={`${base}/`}
-          className="flex items-center px-6 md:px-8 border-r border-[#2e2c30] group flex-shrink-0"
+          className="flex items-center px-8 md:px-14 border-r border-[#2e2c30] group flex-shrink-0"
         >
           <img
             src={`${base}/assets/logo.png`}
             alt="KARDRA"
-            className="h-10 brightness-0 invert transition-opacity duration-300 group-hover:opacity-70"
+            className="h-16 md:h-20 brightness-0 invert transition-opacity duration-300 group-hover:opacity-70"
           />
         </Link>
 
         {/* Desktop nav — each item is its own block */}
-        <nav className="hidden lg:flex flex-1">
+        <nav className="hidden lg:flex flex-1 items-stretch">
           {links.map(({ key, to }) => {
             const active = isActive(to)
             return (
               <Link
                 key={key}
                 to={to}
-                className={`relative flex items-center gap-2 px-5 xl:px-6 border-r border-[#2e2c30] text-[10px] font-['Barlow'] font-600 tracking-[0.18em] uppercase transition-all duration-200 ${
+                className={`relative flex items-center gap-2 px-8 xl:px-11 border-r border-[#2e2c30] text-[11px] font-['Barlow'] font-600 tracking-[0.25em] uppercase transition-all duration-200 ${
                   active
                     ? 'text-[#d29f22] bg-[#252628]'
                     : 'text-[#6a6868] hover:text-[#f0ede8] hover:bg-[#252628]/70'
@@ -80,23 +80,28 @@ export default function Header() {
               </Link>
             )
           })}
+          {/* Language toggle — sits right after nav links, inside the nav area */}
+          <div className="hidden lg:flex items-center border-r border-[#2e2c30] px-10 h-full ml-auto">
+            <LanguageToggle />
+          </div>
         </nav>
 
-        {/* Right block: contact link + language + hamburger */}
-        <div className="flex items-center ml-auto">
+        {/* Right block: contact + hamburger */}
+        <div className="flex items-center">
+
           <Link
             to={`${base}/contact`}
-            className={`hidden lg:flex items-center h-full px-6 border-l border-[#2e2c30] text-[10px] font-['Barlow'] font-600 tracking-[0.18em] uppercase transition-all duration-200 ${
+            className={`hidden lg:flex items-center h-full px-10 border-l border-[#2e2c30] text-[11px] font-['Barlow'] font-600 tracking-[0.25em] uppercase transition-all duration-200 ${
               isActive(`${base}/contact`) ? 'bg-[#d29f22] text-[#19171b]' : 'text-[#6a6868] hover:text-[#d29f22] hover:bg-[#252628]'
             }`}
           >
             {t('nav.contact')}
           </Link>
 
-          <div className="flex items-center border-l border-[#2e2c30] px-5 h-full gap-4">
+          <div className="flex items-center border-l border-[#2e2c30] px-6 h-full gap-4 lg:hidden">
             <LanguageToggle />
             <button
-              className="lg:hidden flex flex-col gap-1.5 p-1"
+              className="flex flex-col gap-1.5 p-1"
               onClick={() => setOpen(!open)}
               aria-label="Menu"
             >
@@ -105,6 +110,16 @@ export default function Header() {
               <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
             </button>
           </div>
+
+          <button
+            className="hidden lg:flex flex-col gap-1.5 p-1 border-l border-[#2e2c30] px-6 h-full items-center justify-center lg:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-[2px] bg-[#f0ede8] transition-all duration-200 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+          </button>
         </div>
       </div>
 
