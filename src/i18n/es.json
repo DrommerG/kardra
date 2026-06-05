@@ -8,8 +8,21 @@
     "contact": "Contacto",
     "faq": "FAQ"
   },
+  "ui": {
+    "labels": {
+      "intro": "00 / INICIO",
+      "problem": "EL PROBLEMA",
+      "solution": "SOLUCIÓN",
+      "paths": "DOS CAMINOS",
+      "products": "PRODUCTOS",
+      "services": "SERVICIOS",
+      "process": "PROCESO",
+      "impact": "IMPACTO"
+    }
+  },
   "home": {
     "hero": {
+      "titleLines": ["AUTOMATIZA", "LO QUE TE HACE", "PERDER TIEMPO"],
       "title": "AUTOMATIZA   LO   QUE   TE   HACE   PERDER   TIEMPO",
       "subtitle": "Recupera el tiempo que pierdes en procesos manuales, mensajes y tareas repetitivas. Kardra los convierte en sistemas automáticos que operan por ti.",
       "support": "Diseñado para empresas que necesitan control, velocidad y escala.",
@@ -28,9 +41,14 @@
     "solution": {
       "title": "KARDRA CONVIERTE PROCESOS EN SISTEMAS",
       "text": "Diseñamos automatizaciones que capturan, organizan y procesan información en tiempo real, sin depender de tareas manuales.",
-      "support": "Menos error humano. Más control. Más velocidad operativa."
+      "support": "Menos error humano. Más control. Más velocidad operativa.",
+      "metric_time": "TIEMPO",
+      "metric_control": "CONTROL",
+      "metric_scale": "ESCALA"
     },
     "split": {
+      "header_title": "Dos formas de automatizar.",
+      "header_sub": "Elige la tuya.",
       "left_title": "SISTEMAS LISTOS PARA USAR",
       "left_text": "Soluciones ya diseñadas para automatizar procesos comunes de forma rápida.",
       "left_list": ["Registro automático de gastos", "Registro automático de ingresos y egresos", "Informes automáticos de gestión (KPIs)", "Plantillas de procesos automáticos de implementación"],

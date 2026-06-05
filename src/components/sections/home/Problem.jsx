@@ -10,7 +10,7 @@ export default function Problem() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="bg-[#252628] relative overflow-hidden">
+    <section ref={ref} className="bg-[#252628] relative overflow-hidden min-h-[600px] md:min-h-[700px]">
       {/* Background image — very subtle */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-[0.04]"
@@ -33,7 +33,7 @@ export default function Problem() {
         >
           <span className="font-mono text-[#d29f22] text-xs tracking-widest">01</span>
           <div className="flex-1 h-px bg-[#2e2c30]" />
-          <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">EL PROBLEMA</span>
+          <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">{t('ui.labels.problem')}</span>
         </motion.div>
 
         {/* Statement */}

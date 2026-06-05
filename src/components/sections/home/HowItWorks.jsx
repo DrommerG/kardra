@@ -25,15 +25,15 @@ export default function HowItWorks() {
           <div className="flex items-center gap-4 mb-6">
             <span className="font-mono text-[#d29f22] text-xs tracking-widest">06</span>
             <div className="flex-1 h-px bg-[#2e2c30]" />
-            <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">PROCESO</span>
+            <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">{t('ui.labels.process')}</span>
           </div>
           <h2 className="font-display text-[clamp(2.5rem,5.5vw,7rem)] leading-[0.9]">
             {t('home.howItWorks.title')}
           </h2>
         </motion.div>
 
-        {/* Steps — horizontal editorial list */}
-        <div className="relative">
+        {/* Steps — cards drop in with spring + perspective */}
+        <div className="relative" style={{ perspective: '800px' }}>
           {/* Connecting gold line desktop */}
           <motion.div
             initial={{ scaleX: 0 }}
@@ -47,20 +47,25 @@ export default function HowItWorks() {
             {steps.map((step, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, rotateX: -22, y: 50 }}
+                animate={inView ? { opacity: 1, rotateX: 0, y: 0 } : {}}
+                transition={{
+                  delay: i * 0.15,
+                  duration: 0.8,
+                  ease: [0.16, 1, 0.3, 1],
+                  rotateX: { type: 'spring', stiffness: 90, damping: 18, delay: i * 0.15 },
+                }}
                 className="group relative p-8 md:p-10 border border-[#2e2c30] lg:border-r-0 lg:last:border-r hover:bg-[#252628] hover:border-[#d29f22]/20 transition-all duration-300"
               >
                 {/* Step indicator dot */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={inView ? { scale: 1 } : {}}
-                  transition={{ delay: 0.4 + i * 0.15, duration: 0.4 }}
+                  transition={{ delay: 0.4 + i * 0.15, duration: 0.4, type: 'spring' }}
                   className="relative z-10 w-3 h-3 bg-[#d29f22] mb-8"
                 />
 
-                {/* Big number — background element */}
+                {/* Big number */}
                 <div className="font-display text-[7rem] text-[#252628] group-hover:text-[#d29f22]/10 transition-colors duration-400 leading-none select-none -mt-6 mb-4">
                   {step.num}
                 </div>

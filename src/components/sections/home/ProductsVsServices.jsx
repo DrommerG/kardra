@@ -1,4 +1,4 @@
-﻿import { useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -14,7 +14,7 @@ export default function ProductsVsServices() {
   const rightList = t('home.split.right_list', { returnObjects: true })
 
   return (
-    <section ref={ref} className="bg-[#252628] relative overflow-hidden">
+    <section ref={ref} className="bg-[#252628] relative overflow-hidden min-h-[700px] md:min-h-[750px]">
 
       {/* Top gold rule */}
       <div className="h-[2px] bg-[#d29f22]" />
@@ -31,11 +31,11 @@ export default function ProductsVsServices() {
           <div className="flex items-center gap-4 mb-8">
             <span className="font-mono text-[#d29f22] text-xs tracking-widest">03</span>
             <div className="flex-1 h-px bg-[#2e2c30]" />
-            <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">DOS CAMINOS</span>
+            <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">{t('ui.labels.paths')}</span>
           </div>
           <h2 className="font-display text-[clamp(2rem,4vw,5rem)] leading-[0.9]">
-            Dos formas de automatizar.<br />
-            <span className="text-[#d29f22]">Elige la tuya.</span>
+            {t('home.split.header_title')}<br />
+            <span className="text-[#d29f22]">{t('home.split.header_sub')}</span>
           </h2>
         </motion.div>
 
@@ -51,7 +51,7 @@ export default function ProductsVsServices() {
             style={{ boxShadow: '6px 6px 0px #d29f22' }}
           >
             <div className="absolute top-6 left-6 text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#d29f22] border border-[#d29f22]/40 px-2 py-0.5">
-              PRODUCTOS · LISTOS PARA USAR
+              {t('ui.labels.products')} · {t('home.split.left_title')}
             </div>
 
             <div className="mt-10">
@@ -80,10 +80,10 @@ export default function ProductsVsServices() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="border border-[#2e2c30] p-8 md:p-12 lg:p-14 relative group hover:border-[#d29f22]/30 transition-colors duration-400 lg:-ml-[2px] lg:mt-8"
+            className="border-2 border-[#f0ede8]/20 p-8 md:p-12 lg:p-14 relative group hover:border-[#d29f22]/40 transition-colors duration-400 lg:-ml-[2px] lg:mt-8"
           >
             <div className="absolute top-6 left-6 text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.3em] uppercase text-[#6a6868] border border-[#6a6868]/40 px-2 py-0.5">
-              SERVICIOS · A MEDIDA
+              {t('ui.labels.services')} · {t('home.split.right_title')}
             </div>
 
             <div className="mt-10">
@@ -102,7 +102,7 @@ export default function ProductsVsServices() {
                 ))}
               </ul>
               <Link to={`${base}/services`}>
-                <Button variant="outline">{t('home.split.right_cta')}</Button>
+                <Button variant="cream">{t('home.split.right_cta')}</Button>
               </Link>
             </div>
           </motion.div>

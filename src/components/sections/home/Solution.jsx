@@ -1,4 +1,4 @@
-﻿import { useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
@@ -10,11 +10,17 @@ export default function Solution() {
   const clipPath = useTransform(scrollYProgress, [0, 0.5], ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.0])
 
+  const metrics = [
+    { symbol: '−', key: 'metric_time' },
+    { symbol: '+', key: 'metric_control' },
+    { symbol: '↑', key: 'metric_scale' },
+  ]
+
   return (
     <section ref={ref} className="bg-[#19171b] relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
 
-        {/* Left: image (scroll reveal) */}
+        {/* Left: image (scroll reveal from right) */}
         <div className="relative overflow-hidden min-h-[360px] lg:min-h-0">
           <motion.div style={{ clipPath }} className="absolute inset-0">
             <motion.img
@@ -29,20 +35,18 @@ export default function Solution() {
 
           {/* Floating metrics on image */}
           <div className="absolute bottom-8 left-8 right-8 grid grid-cols-3 gap-0">
-            {[
-              { symbol: '−', label: 'TIEMPO' },
-              { symbol: '+', label: 'CONTROL' },
-              { symbol: '↑', label: 'ESCALA' },
-            ].map(({ symbol, label }) => (
+            {metrics.map(({ symbol, key }) => (
               <motion.div
-                key={label}
+                key={key}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="border border-[#2e2c30] bg-[#19171b]/80 backdrop-blur-sm p-4 text-center"
               >
                 <div className="font-display text-3xl text-[#d29f22] mb-1">{symbol}</div>
-                <div className="text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.2em] text-[#6a6868] uppercase">{label}</div>
+                <div className="text-[9px] font-['Space_Grotesk'] font-600 tracking-[0.2em] text-[#6a6868] uppercase">
+                  {t(`home.solution.${key}`)}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -60,7 +64,7 @@ export default function Solution() {
             <div className="flex items-center gap-4 mb-10">
               <span className="font-mono text-[#d29f22] text-xs tracking-widest">02</span>
               <div className="flex-1 h-px bg-[#2e2c30]" />
-              <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">SOLUCIÓN</span>
+              <span className="text-[10px] tracking-[0.3em] text-[#6a6868] uppercase">{t('ui.labels.solution')}</span>
             </div>
 
             <h2 className="font-display text-[clamp(2.5rem,5vw,6rem)] mb-8 leading-[0.9]">

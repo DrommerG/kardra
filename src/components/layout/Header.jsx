@@ -49,19 +49,19 @@ export default function Header() {
 
       <div className="flex items-stretch h-[108px] border-b border-[#2e2c30]">
 
-        {/* Logo block */}
+        {/* Logo block — bigger */}
         <Link
           to={`${base}/`}
-          className="flex items-center px-8 md:px-14 border-r border-[#2e2c30] group flex-shrink-0"
+          className="flex items-center px-8 md:px-12 border-r border-[#2e2c30] group flex-shrink-0"
         >
           <img
             src={`${base}/assets/logo.png`}
             alt="KARDRA"
-            className="h-16 md:h-20 brightness-0 invert transition-opacity duration-300 group-hover:opacity-70"
+            className="h-20 md:h-24 brightness-0 invert transition-opacity duration-300 group-hover:opacity-70"
           />
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav — links fill evenly, lang toggle at end */}
         <nav className="hidden lg:flex flex-1 items-stretch">
           {links.map(({ key, to }) => {
             const active = isActive(to)
@@ -69,7 +69,7 @@ export default function Header() {
               <Link
                 key={key}
                 to={to}
-                className={`relative flex items-center gap-2.5 px-7 xl:px-10 border-r border-[#2e2c30] text-[12px] font-['Space_Grotesk'] font-600 tracking-[0.22em] uppercase transition-all duration-200 ${
+                className={`relative flex flex-1 items-center justify-center gap-2 border-r border-[#2e2c30] text-[11px] font-['Space_Grotesk'] font-600 tracking-[0.2em] uppercase transition-all duration-200 ${
                   active
                     ? 'text-[#d29f22] bg-[#252628]'
                     : 'text-[#6a6868] hover:text-[#f0ede8] hover:bg-[#252628]/70'
@@ -80,18 +80,17 @@ export default function Header() {
               </Link>
             )
           })}
-          {/* Language toggle inside nav */}
-          <div className="hidden lg:flex items-center border-r border-[#2e2c30] px-8 h-full ml-auto">
+          {/* Language toggle — no ml-auto, stays right after links */}
+          <div className="flex items-center border-r border-[#2e2c30] px-8 h-full">
             <LanguageToggle />
           </div>
         </nav>
 
         {/* Right block: contact + hamburger */}
         <div className="flex items-center">
-
           <Link
             to={`${base}/contact`}
-            className={`hidden lg:flex items-center h-full px-10 border-l border-[#2e2c30] text-[12px] font-['Space_Grotesk'] font-600 tracking-[0.22em] uppercase transition-all duration-200 ${
+            className={`hidden lg:flex items-center h-full pl-10 pr-16 border-l border-[#2e2c30] text-[11px] font-['Space_Grotesk'] font-600 tracking-[0.2em] uppercase transition-all duration-200 ${
               isActive(`${base}/contact`) ? 'bg-[#d29f22] text-[#19171b]' : 'text-[#6a6868] hover:text-[#d29f22] hover:bg-[#252628]'
             }`}
           >

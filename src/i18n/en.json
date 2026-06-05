@@ -8,8 +8,21 @@
     "contact": "Contact",
     "faq": "FAQ"
   },
+  "ui": {
+    "labels": {
+      "intro": "00 / HOME",
+      "problem": "THE PROBLEM",
+      "solution": "SOLUTION",
+      "paths": "TWO PATHS",
+      "products": "PRODUCTS",
+      "services": "SERVICES",
+      "process": "PROCESS",
+      "impact": "IMPACT"
+    }
+  },
   "home": {
     "hero": {
+      "titleLines": ["AUTOMATE", "WHAT'S WASTING", "YOUR TIME"],
       "title": "AUTOMATE WHAT'S WASTING YOUR TIME",
       "subtitle": "Recover the time you lose on manual processes, messages, and repetitive tasks. Kardra turns them into automated systems that run on their own.",
       "support": "Built for companies that need control, speed, and scale.",
@@ -28,9 +41,14 @@
     "solution": {
       "title": "KARDRA TURNS PROCESSES INTO SYSTEMS",
       "text": "We build automations that capture, organize, and process information in real time — with no manual work required.",
-      "support": "Less human error. More control. Faster operations."
+      "support": "Less human error. More control. Faster operations.",
+      "metric_time": "TIME",
+      "metric_control": "CONTROL",
+      "metric_scale": "SCALE"
     },
     "split": {
+      "header_title": "Two ways to automate.",
+      "header_sub": "Choose yours.",
       "left_title": "READY-TO-USE SYSTEMS",
       "left_text": "Pre-built solutions to automate common processes quickly.",
       "left_list": ["Automatic expense tracking", "Automatic income and expense tracking", "Automated management reports (KPIs)", "Ready-to-deploy process templates"],

@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 const variants = {
   primary: 'bg-[#5d0018] text-[#f0ede8] border-2 border-[#5d0018] hover:bg-[#d29f22] hover:border-[#d29f22] hover:text-[#19171b]',
   gold:    'bg-[#d29f22] text-[#19171b] border-2 border-[#d29f22] hover:bg-transparent hover:text-[#d29f22]',
-  outline: 'bg-transparent text-[#f0ede8] border-2 border-[#f0ede8]/25 hover:border-[#d29f22] hover:text-[#d29f22]',
-  ghost:   'bg-transparent text-[#6a6868] border-2 border-transparent hover:text-[#f0ede8] hover:border-[#2e2c30]',
+  outline: 'bg-transparent text-[#f0ede8] border-2 border-[#f0ede8]/50 hover:border-[#d29f22] hover:text-[#d29f22]',
+  ghost:   'bg-transparent text-[#6a6868] border-2 border-[#2e2c30] hover:text-[#f0ede8] hover:border-[#f0ede8]/50',
   cream:   'bg-transparent text-[#f0ede8] border-2 border-[#f0ede8]/50 hover:bg-[#f0ede8] hover:text-[#19171b] hover:border-[#f0ede8]',
 }
 
